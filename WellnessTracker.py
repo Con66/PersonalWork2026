@@ -53,18 +53,45 @@ def welcome() :
 
 def dailyCheckIn(tracker) :
     weekday = datetime.now().strftime("%A")
+    #set up the date
 
+    dateString = datetime.now().strftime("%Y-%m-%d")
+
+    
     
     print("Happy " + weekday + ", " + userName + ".")
     print("How are you feeling today? Let's check in.")
     print("For how many hours last night did you sleep?")
-    hoursSlept = input()
+    hoursSlept = float(input())
     print("And how would you describe the quality of that sleep, on a scale of 1-10?")
-    sleepQuality = input()
+    sleepQuality = int(input())
     print("How severe is your headache, on a scale of 1-10?")
-    headacheSeverity = input()
+    headacheSeverity = int(input())
     print("How severe is the visual distortion, on a scale of 1-10?")
-    distortionSeverity = input()
+    distortionSeverity = int(input())
+    print("How well did you eat today, on a scale from 1-10?")
+    mealQuality = int(input())
+    print("What exercise did you complete today? (You cannot use commas)")
+    workout = input()
+
+    daily_entry = {
+        "Date": dateString,
+        "Hours_Of_Sleep": hoursSlept,
+        "Quality_Of_Sleep": sleepQuality,
+        "Headache_Severity": headacheSeverity,
+        "Distortion_Severity": distortionSeverity,
+        "Meal_Quality": mealQuality,
+        "Exercise_Completed": workout,
+        "Anomaly": False
+        }    
+    print(daily_entry)
+    tracker = pd.concat([tracker, pd.DataFrame([daily_entry])], ignore_index=True)
+
+    # Save back at end of session
+    tracker.to_csv('WellnessChart.csv', index=False)
+
+
+
 
 
 #run our program
