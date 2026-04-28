@@ -22,7 +22,8 @@ def welcome() :
     #tracker = pd.read_csv(r'C:\Users\cbabc\Desktop\Personal Projects 2026\WellnessChart.csv')
     tracker = pd.read_csv('WellnessChart.csv')
     #Our tracker has been read into correctly
-    print(tracker.head())
+
+    anomalyTracker = pd.read_csv('Anomalies.csv')
 
 
     curHour = datetime.now().hour
@@ -46,6 +47,8 @@ def welcome() :
     userChoice = int(userChoice)
     if userChoice == 1 : 
         dailyCheckIn(tracker)
+    elif userChoice == 2 :
+        anomalyLogger(anomalyTracker)
 
     #Run our different routines for the different inputs
 
@@ -65,6 +68,8 @@ def dailyCheckIn(tracker) :
     hoursSlept = float(input())
     print("And how would you describe the quality of that sleep, on a scale of 1-10?")
     sleepQuality = int(input())
+    print("How long (in hours) did it take you to fall asleep?")
+    timeToSleep = float(input())
     print("How severe is your headache, on a scale of 1-10?")
     headacheSeverity = int(input())
     print("How severe is the visual distortion, on a scale of 1-10?")
@@ -78,6 +83,7 @@ def dailyCheckIn(tracker) :
         "Date": dateString,
         "Hours_Of_Sleep": hoursSlept,
         "Quality_Of_Sleep": sleepQuality,
+        "Time_To_Fall_Asleep": timeToSleep,
         "Headache_Severity": headacheSeverity,
         "Distortion_Severity": distortionSeverity,
         "Meal_Quality": mealQuality,
@@ -90,9 +96,31 @@ def dailyCheckIn(tracker) :
     # Save back at end of session
     tracker.to_csv('WellnessChart.csv', index=False)
 
+#input two - anomaly logger
+def anomalyLogger(anomalyTracker) :
+    print("I'm sorry there's an anomaly. What would you like to record?")
+    print("Anomaly Type: (type exactly as the following - Headache, HPPD General, Eye Blur, Loud Music, Dizziness, Exhaustion)")
+    anomalyType = input()
+    print("What is the severity, on a scale of one to ten?")
+    severity = int(input())
+    print("How long has it been since the start?")
+    length = float(input())
+    print("What have you attempted as a mitigation measure? (No commas)")
+    mitigation = input()
 
+    anomaly_Entry = {
+        "Anomaly_Type" : anomalyType,
+        "Severity" : severity,
+        "Length_Since_Start" : length,
+        "Mitigation_Measures" : mitigation
+    }
 
+    print(anomaly_Entry)
 
+    anomalyTracker = pd.concat([anomalyTracker, pd.DataFrame([anomaly_Entry])], ignore_index=True)
+
+    # Save back at end of session
+    anomalyTracker.to_csv('Anomalies.csv', index=False)
 
 #run our program
 welcome()

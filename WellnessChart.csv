@@ -1,2 +1,3 @@
-Date,Hours_Of_Sleep,Quality_Of_Sleep,Headache_Severity,Distortion_Severity,Meal_Quality,Exercise_Completed,Anomaly
-2026-04-27,8.0,3,3,2,5,sprint,False
+Date,Hours_Of_Sleep,Quality_Of_Sleep,Time_To_Fall_Asleep,Headache_Severity,Distortion_Severity,Meal_Quality,Exercise_Completed,Anomaly
+2026-04-27,8.0,3,1.2,3,2,5,sprint and lift,False
+2026-04-28,8.0,2,1.1,7,5,5,mini,False
