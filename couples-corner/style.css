@@ -111,74 +111,20 @@ body {
     padding: 10px 20px;
 }
 
-/* ── Picture Frame ── */
-#picture-frame {
-    width: 80px;
-    height: 70px;
-    background-color: #c8a96e;
-    border-radius: 4px;
-    border: 4px solid #8b6914;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
-}
 
-#picture-inner {
-    width: 90%;
-    height: 85%;
-    background: linear-gradient(135deg, #1a3a5c, #2d6a8a, #1a3a5c);
-    border-radius: 2px;
-}
-
-/* ── Snow Globe ── */
-#globe {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-
-
-#globe-inner {
-    width: 55px;
-    height: 55px;
-    background: radial-gradient(circle at 35% 35%, #4a9eff, #1a3a8c);
-    border-radius: 50%;
-    border: 3px solid #a0c4e8;
-    overflow: hidden;
-    box-shadow: inset -4px -4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(100, 160, 255, 0.3);
-    position: relative;
-}
-
+/* Our globe image */
 #globe img {
     width: 140px;
     height: 140px;
     object-fit: contain;
 }
 
-/* Landmasses */
-#globe-inner::before {
-    content: '';
-    position: absolute;
-    width: 20px;
-    height: 15px;
-    background-color: #2d8a4e;
-    border-radius: 50% 40% 60% 30%;
-    top: 15px;
-    left: 8px;
+#stack-of-books img {
+    width: 100px;
+    height: 110px;
+    object-fit: contain;
 }
 
-#globe-inner::after {
-    content: '';
-    position: absolute;
-    width: 14px;
-    height: 18px;
-    background-color: #2d8a4e;
-    border-radius: 30% 60% 40% 50%;
-    top: 10px;
-    right: 8px;
-}
 
 /* ── Fireplace ── */
 #fireplace {
@@ -310,19 +256,7 @@ body {
         opacity: 0.85;
     }
 }
-/* ── Corkboard ── */
-#corkboard {
-    width: 200px;
-    height: 100%;
-    background-color: #8b6914;
-    border-radius: 10px;
-    border: 6px solid #4a2f1a;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #f0e6d3;
-    font-size: 14px;
-}
+
 
 /* ── Controls ── */
 #controls {
