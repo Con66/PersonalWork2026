@@ -3,10 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <title>Couples Corner</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Couples Corner</h1>
+   
+        <div id="app">
 
+        <!-- Header -->
+        <div id="header">
+            <h1>Couples Corner</h1>
+            <p id="status">Welcome back</p>
+        </div>
+
+        <!-- Main Room -->
+        <div id="room">
+
+            <!-- Window -->
+            <div id="window">
+                <p>Window</p>
+            </div>
+
+            <!-- Second Window-->
+            <div id="window2">
+                <p>Window2</p>
+            </div>
+
+           <div id="fireplace-wrapper">
+            
+            <!-- Mantel -->
+            <div id="mantel">
+                <div id="picture-frame">
+                    <div id="picture-inner"></div>
+                </div>
+                <!-- <div id="picture-frame">
+                    <img src="assets/picture-frame.png" alt="picture frame">
+                </div> -->
+                <div id="globe">
+                    <img src="assets/spinning_globe.gif" alt="spinning globe">
+                </div>
+            </div>
+
+            <!-- Fireplace -->
+            <div id="fireplace">
+                <div id="fireplace-interior">
+                    <div id="logs">
+                        <div class="log log-back"></div>
+                        <div class="log log-front"></div>
+                    </div>
+                    <div id="flames" class="hidden">
+                        <div class="flame flame-1"></div>
+                        <div class="flame flame-2"></div>
+                        <div class="flame flame-3"></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+            <!-- Corkboard -->
+            <div id="corkboard">
+                <p>Leave a note...</p>
+            </div>
+
+        </div>
+
+        <!-- Controls -->
+        <div id="controls">
+            
+            <button id="weather-btn">Toggle Weather</button>
+        </div>
+
+    </div>
+
+    <script type="module" src="app.js"></script>
     <!-- Firebase SDKs -->
     <script type="module" src="app.js"></script>
 </body>

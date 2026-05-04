@@ -1,0 +1,350 @@
+/* ── General Reset & Base ── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #1a1a2e;
+    font-family: 'Georgia', serif;
+    color: #f0e6d3;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ── App Container ── */
+#app {
+    width: 900px;
+    height: 600px;
+    background-color: #2d1b0e;
+    border-radius: 20px;
+    box-shadow: 0 0 60px rgba(255, 150, 50, 0.2);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* ── Header ── */
+#header {
+    background-color: #1a0f07;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #4a2f1a;
+}
+
+#header h1 {
+    font-size: 24px;
+    color: #f0c070;
+    letter-spacing: 2px;
+}
+
+#status {
+    font-size: 14px;
+    color: #a08060;
+    font-style: italic;
+}
+
+/* ── Main Room ── */
+#room {
+    flex: 1;
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #2d1b0e;
+}
+
+/* ── Window ── */
+#window {
+    width: 250px;
+    height: 100%;
+    background-color: #1a3a5c;
+    border-radius: 10px;
+    border: 6px solid #4a2f1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a0c4e8;
+    font-size: 14px;
+}
+/* ── Window ── */
+#window2 {
+    width: 250px;
+    height: 100%;
+    background-color: #1a3a5c;
+    border-radius: 10px;
+    border: 6px solid #4a2f1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #a0c4e8;
+    font-size: 14px;
+}
+
+/* ── Fireplace Interior ── */
+/* ── Fireplace Wrapper ── */
+#fireplace-wrapper {
+    flex: 1;
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0;
+}
+
+/* ── Mantel ── */
+#mantel {
+    width: 100%;
+    height: 100px;
+    background-color: #3b1f0a;
+    border-radius: 10px 10px 0 0;
+    border: 6px solid #4a2f1a;
+    border-bottom: none;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px 20px;
+}
+
+/* ── Picture Frame ── */
+#picture-frame {
+    width: 80px;
+    height: 70px;
+    background-color: #c8a96e;
+    border-radius: 4px;
+    border: 4px solid #8b6914;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.5);
+}
+
+#picture-inner {
+    width: 90%;
+    height: 85%;
+    background: linear-gradient(135deg, #1a3a5c, #2d6a8a, #1a3a5c);
+    border-radius: 2px;
+}
+
+/* ── Snow Globe ── */
+#globe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+#globe-inner {
+    width: 55px;
+    height: 55px;
+    background: radial-gradient(circle at 35% 35%, #4a9eff, #1a3a8c);
+    border-radius: 50%;
+    border: 3px solid #a0c4e8;
+    overflow: hidden;
+    box-shadow: inset -4px -4px 8px rgba(0,0,0,0.4), 0 0 10px rgba(100, 160, 255, 0.3);
+    position: relative;
+}
+
+#globe img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+/* Landmasses */
+#globe-inner::before {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 15px;
+    background-color: #2d8a4e;
+    border-radius: 50% 40% 60% 30%;
+    top: 15px;
+    left: 8px;
+}
+
+#globe-inner::after {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 18px;
+    background-color: #2d8a4e;
+    border-radius: 30% 60% 40% 50%;
+    top: 10px;
+    right: 8px;
+}
+
+/* ── Fireplace ── */
+#fireplace {
+    width: 100%;
+    min-width: 300px;
+    height: 200px;
+    background-color: #1a0f07;
+    border-radius: 0 0 10px 10px;
+    border: 6px solid #4a2f1a;
+    border-top: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+#fireplace-interior {
+    width: 80%;
+    height: 80%;
+    background-color: #0a0a0a;
+    border-radius: 8px 8px 0 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* ── Logs ── */
+#logs {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 2;
+}
+
+.log {
+    border-radius: 10px;
+    position: absolute;
+}
+
+.log-back {
+    width: 70%;
+    height: 14px;
+    background-color: #3b1f0a;
+    bottom: 18px;
+    transform: rotate(-5deg);
+}
+
+.log-front {
+    width: 75%;
+    height: 16px;
+    background-color: #5c2e0e;
+    bottom: 6px;
+    transform: rotate(3deg);
+}
+
+/* ── Flames ── */
+#flames {
+    width: 100%;
+    height: 80%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    position: absolute;
+    bottom: 30px;
+    z-index: 1;
+}
+
+#flames.hidden {
+    display: none;
+}
+
+.flame {
+    width: 40px;
+    height: 80px;
+    border-radius: 50% 50% 20% 20%;
+    position: absolute;
+    bottom: 0;
+    animation: flicker 1.2s ease-in-out infinite alternate;
+    transform-origin: bottom center;
+}
+
+.flame-1 {
+    background: linear-gradient(to top, #ff6600, #ff2200, transparent);
+    height: 90px;
+    width: 35px;
+    left: calc(50% - 17px);
+    animation-duration: 1s;
+}
+
+.flame-2 {
+    background: linear-gradient(to top, #ff9900, #ff6600, transparent);
+    height: 70px;
+    width: 30px;
+    left: calc(50% - 40px);
+    animation-duration: 1.3s;
+    animation-delay: 0.2s;
+}
+
+.flame-3 {
+    background: linear-gradient(to top, #ffcc00, #ff9900, transparent);
+    height: 75px;
+    width: 30px;
+    left: calc(50% + 10px);
+    animation-duration: 0.9s;
+    animation-delay: 0.4s;
+}
+
+/* ── Flame Animation ── */
+@keyframes flicker {
+    0% {
+        transform: scaleX(1) scaleY(1) rotate(-2deg);
+        opacity: 0.9;
+    }
+    50% {
+        transform: scaleX(0.85) scaleY(1.1) rotate(2deg);
+        opacity: 1;
+    }
+    100% {
+        transform: scaleX(1.1) scaleY(0.95) rotate(-1deg);
+        opacity: 0.85;
+    }
+}
+/* ── Corkboard ── */
+#corkboard {
+    width: 200px;
+    height: 100%;
+    background-color: #8b6914;
+    border-radius: 10px;
+    border: 6px solid #4a2f1a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #f0e6d3;
+    font-size: 14px;
+}
+
+/* ── Controls ── */
+#controls {
+    background-color: #1a0f07;
+    padding: 15px 30px;
+    display: flex;
+    gap: 15px;
+    border-top: 2px solid #4a2f1a;
+}
+
+#controls button {
+    background-color: #4a2f1a;
+    color: #f0e6d3;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Georgia', serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#controls button:hover {
+    background-color: #6a4f3a;
+}

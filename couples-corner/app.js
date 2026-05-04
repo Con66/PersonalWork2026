@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc, getDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 
@@ -68,7 +68,52 @@ async function testRead() {
     }
 }
 
-testRead();
+// Get button elements
+const fireplaceBtn = document.getElementById("fireplace");
+const weatherBtn = document.getElementById("weather-btn");
 
-// CALL THE FUNCTION
-testWrite();
+// Fireplace button
+fireplaceBtn.addEventListener("click", async () => {
+    try {
+        const docRef = doc(db, "room", "state");
+        const docSnap = await getDoc(docRef);
+        const currentState = docSnap.data();
+
+        const newFireplaceState = !currentState.fireplace;
+
+        await setDoc(docRef, {
+            ...currentState,
+            fireplace: newFireplaceState
+        });
+
+        console.log("Fireplace is now:", newFireplaceState);
+    } catch (error) {
+        console.error("Error toggling fireplace:", error);
+    }
+});
+
+// Listen for real time changes
+const docRef = doc(db, "room", "state");
+
+onSnapshot(docRef, (docSnap) => {
+    if (docSnap.exists()) {
+        const state = docSnap.data();
+
+        const flames = document.getElementById("flames");
+        const fireplaceEl = document.getElementById("fireplace");
+
+        if (state.fireplace) {
+            flames.classList.remove("hidden");
+            fireplaceEl.style.boxShadow = "0 0 40px rgba(255, 100, 0, 0.6)";
+        } else {
+            flames.classList.add("hidden");
+            fireplaceEl.style.boxShadow = "none";
+        }
+    }
+});
+
+//testing functions:
+// testRead();
+
+//testing functions
+// testWrite();
