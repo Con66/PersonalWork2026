@@ -56,15 +56,17 @@ body {
     gap: 20px;
     padding: 20px;
     background-color: #2d1b0e;
+    align-items: flex-start;
+    padding-top: 5%;
 }
 
 /* ── Window ── */
 #window {
     width: 250px;
-    height: 100%;
+    height: 200px;
     background-color: #1a3a5c;
-    border-radius: 10px;
-    border: 6px solid #4a2f1a;
+    border-radius: 20px 20px 0px 0px;
+    border: 6px solid #6c492e;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -74,15 +76,43 @@ body {
 /* ── Window ── */
 #window2 {
     width: 250px;
-    height: 100%;
+    height: 200px;
     background-color: #1a3a5c;
-    border-radius: 10px;
-    border: 6px solid #4a2f1a;
+    border-radius: 20px 20px 0px 0px;
+    border: 6px solid #6c492e;
     display: flex;
     justify-content: center;
     align-items: center;
     color: #a0c4e8;
     font-size: 14px;
+}
+
+#picture-frame {
+    width: 250px;
+    height: 150px;
+    background-color: grey;
+    border-radius: 0px;
+    border: 6px solid #6c492e;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+
+#picture-in-frame {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+#picture-in-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }
 
 /* ── Fireplace Interior ── */
@@ -95,6 +125,7 @@ body {
     align-items: center;
     justify-content: flex-end;
     gap: 0;
+    align-self: flex-end;
 }
 
 /* ── Mantel ── */
@@ -257,6 +288,7 @@ body {
     }
 }
 
+/* Controls are no longer part of the project, but may become so again in the future */
 
 /* ── Controls ── */
 #controls {

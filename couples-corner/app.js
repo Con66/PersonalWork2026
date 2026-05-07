@@ -71,6 +71,7 @@ async function testRead() {
 // Get button elements
 const fireplaceBtn = document.getElementById("fireplace");
 const weatherBtn = document.getElementById("weather-btn");
+const pictureBtn = document.getElementById("picture-frame");
 
 // Fireplace button
 fireplaceBtn.addEventListener("click", async () => {
@@ -91,6 +92,11 @@ fireplaceBtn.addEventListener("click", async () => {
         console.error("Error toggling fireplace:", error);
     }
 });
+
+//Picture button
+pictureBtn.addEventListener("click", async () => {
+    console.log("Picture pressed!")
+})
 
 // Listen for real time changes
 const docRef = doc(db, "room", "state");
