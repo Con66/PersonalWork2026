@@ -19,8 +19,16 @@
         <div id="room">
 
             <!-- Window -->
-            <div id="window">
-                <p>Window</p>
+            <div class="window-wrapper" id="window-wrapper-left">
+                <div class="window" id="window-left">
+                    <img class="weather-gif" id="weather-gif-left" src="assets/sunny.png" alt="weather">
+                    <p class="temperature" id="temp-left">--°F</p>
+                </div>
+                <div class="location-bar">
+                    <p class="location-display" id="location-display-left">Loading...</p>
+                    <button class="location-btn" id="location-btn-left">Change</button>
+                    <input class="location-input hidden" id="location-input-left" type="text" placeholder="Enter city...">
+                </div>
             </div>
 
             
@@ -62,8 +70,16 @@
         </div>
 
         <!-- Second Window-->
-            <div id="window2">
-                <p>Window2</p>
+            <div class="window-wrapper" id="window-wrapper-right">
+                <div class="window" id="window-right">
+                    <img class="weather-gif" id="weather-gif-right" src="assets/cloudy.png" alt="weather">
+                    <p class="temperature" id="temp-right">--°F</p>
+                </div>
+                <div class="location-bar">
+                    <p class="location-display" id="location-display-right">Loading...</p>
+                    <button class="location-btn" id="location-btn-right">Change</button>
+                    <input class="location-input hidden" id="location-input-right" type="text" placeholder="Enter city...">
+                </div>
             </div>
 
             
@@ -78,7 +94,7 @@
 
     </div>
 
-    <script type="module" src="app.js"></script>
+    
     <!-- Firebase SDKs -->
     <script type="module" src="app.js"></script>
 </body>
