@@ -3,6 +3,7 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebas
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
 import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -38,6 +39,7 @@ const app = initializeApp(firebaseConfig);
 const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const WEATHER_API_KEY = "d47c5d80f0a52e814ae14977826b50d6"
+const storage = getStorage(app);
 
 // TEST WRITE FUNCTION
 async function testWrite() {
@@ -95,9 +97,141 @@ fireplaceBtn.addEventListener("click", async () => {
 });
 
 //Picture button
-pictureBtn.addEventListener("click", async () => {
-    console.log("Picture pressed!")
-})
+pictureBtn.addEventListener("click", () => {
+    document.getElementById("upload-panel").classList.remove("hidden");
+});
+
+document.getElementById("close-upload-btn").addEventListener("click", () => {
+    document.getElementById("upload-panel").classList.add("hidden");
+});
+
+async function uploadPhoto(file) {
+    console.log("Uploading:", file.name);
+    try {
+        // Create a unique filename using timestamp
+        const fileName = `photos/${Date.now()}_${file.name}`;
+        const storageRef = ref(storage, fileName);
+
+        // Upload the file
+        await uploadBytes(storageRef, file);
+        console.log("Photo uploaded successfully!");
+
+        // Hide the panel after upload
+        document.getElementById("upload-panel").classList.add("hidden");
+
+        // Refresh the photo cycle
+        loadPhotos();
+
+    } catch (error) {
+        console.error("Error uploading photo:", error);
+    }
+}
+
+let photoIndex = 0;
+let photoURLs = [];
+
+async function loadPhotos() {
+
+    try {
+        const photosRef = ref(storage, "photos/");
+        const result = await listAll(photosRef);
+
+        // Get download URLs for all photos
+        photoURLs = await Promise.all(
+            result.items.map(item => getDownloadURL(item))
+        );
+
+        console.log("Photos loaded:", photoURLs.length);
+
+        // Start cycling if photos exist
+        if (photoURLs.length > 0) {
+            showPhoto(photoIndex);
+        }
+
+    } catch (error) {
+        console.error("Error loading photos:", error);
+    }
+}
+
+function showPhoto(index) {
+    const frame = document.getElementById("picture-in-frame").querySelector("img");
+    frame.src = photoURLs[index];
+}
+
+// Cycle through photos every 5 seconds
+setInterval(() => {
+    if (photoURLs.length > 0) {
+        photoIndex = (photoIndex + 1) % photoURLs.length;
+        showPhoto(photoIndex);
+    }
+}, 15000);
+
+
+// Load photos on startup
+loadPhotos();
+
+
+document.getElementById("upload-btn").addEventListener("click", async () => {
+    const fileInput = document.getElementById("photo-upload");
+    const file = fileInput.files[0];  // get the actual file directly
+
+    if (!file) {
+        console.log("No file selected");
+        return;
+    }
+
+    await uploadPhoto(file);
+    fileInput.value = "";
+});
+
+function openGallery() {
+    const grid = document.getElementById("gallery-grid");
+    grid.innerHTML = ""; // clear existing thumbnails
+
+    if (photoURLs.length === 0) {
+        grid.innerHTML = "<p style='color: #a08060; font-size: 12px;'>No photos yet!</p>";
+    } else {
+        photoURLs.forEach((url, index) => {
+            // Create gallery item
+            const item = document.createElement("div");
+            item.classList.add("gallery-item");
+
+            // Thumbnail
+            const img = document.createElement("img");
+            img.src = url;
+            img.alt = `Photo ${index + 1}`;
+
+            // Download button
+            const downloadBtn = document.createElement("button");
+            downloadBtn.textContent = "Download";
+            downloadBtn.addEventListener("click", () => downloadPhoto(url, index));
+
+            item.appendChild(img);
+            item.appendChild(downloadBtn);
+            grid.appendChild(item);
+        });
+    }
+
+    document.getElementById("gallery-panel").classList.remove("hidden");
+    document.getElementById("upload-panel").classList.add("hidden");
+}
+
+function downloadPhoto(url, index) {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = `couples-corner-photo-${index + 1}.jpg`;
+    a.target = "_blank";
+    a.click();
+}
+
+document.getElementById("view-album-btn").addEventListener("click", () => {
+    openGallery();
+});
+
+document.getElementById("close-gallery-btn").addEventListener("click", () => {
+    document.getElementById("gallery-panel").classList.add("hidden");
+});
+
 
 async function fetchWeather(city, tempElementId, gifElementId, windowElementId) {
     try {
@@ -125,12 +259,12 @@ async function fetchWeather(city, tempElementId, gifElementId, windowElementId) 
         const isNight = localTime < sunrise || localTime > sunset;
 
         // Add these debug lines
-        console.log("UTC Now:", utcNow);
-        console.log("Local Time:", localTime);
-        console.log("Sunrise:", sunrise);
-        console.log("Sunset:", sunset);
-        console.log("Is Night:", isNight);
-        console.log("Condition:", data.weather[0].main);
+        // console.log("UTC Now:", utcNow);
+        // console.log("Local Time:", localTime);
+        // console.log("Sunrise:", sunrise);
+        // console.log("Sunset:", sunset);
+        // console.log("Is Night:", isNight);
+        // console.log("Condition:", data.weather[0].main);
 
         // Update window background
         const windowEl = document.getElementById(windowElementId);
@@ -264,6 +398,7 @@ document.getElementById("location-input-right").addEventListener("keydown", asyn
         }
     }
 });
+
 
 //testing functions:
 // testRead();
