@@ -109,6 +109,58 @@
             <button id="weather-btn">Toggle Weather</button>
         </div>
 
+        <!-- Books Modal -->
+        <div id="books-modal" class="hidden">
+            
+            <!-- Modal Header -->
+            <div id="books-header">
+                <h2>Our Reading Corner</h2>
+                <button id="close-books-btn">✕</button>
+            </div>
+
+            <!-- Tabs -->
+            <div id="books-tabs">
+                <button class="tab-btn active" data-tab="recommended">Recommended</button>
+                <button class="tab-btn" data-tab="inprogress">In Progress</button>
+                <button class="tab-btn" data-tab="completed">Completed</button>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="books-content">
+
+                <!-- Recommended Tab -->
+                <div class="tab-panel active" id="tab-recommended">
+                    <div id="search-bar">
+                        <input type="text" id="book-search-input" placeholder="Search by title or author...">
+                        <button id="book-search-btn">Search</button>
+                    </div>
+                    <div id="search-results"></div>
+                    <div id="recommended-list"></div>
+                </div>
+
+                <!-- In Progress Tab -->
+                <div class="tab-panel hidden" id="tab-inprogress">
+                    <div id="inprogress-list"></div>
+                </div>
+
+                <!-- Completed Tab -->
+                <div class="tab-panel hidden" id="tab-completed">
+                    <div id="completed-list"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Name Entry Modal -->
+        <div id="name-modal" class="hidden">
+            <div id="name-modal-inner">
+                <h2>Welcome to Couples Corner</h2>
+                <p>What should we call you?</p>
+                <input type="text" id="name-input" placeholder="Enter your name...">
+                <button id="name-submit-btn">Enter</button>
+            </div>
+        </div>
     </div>
 
     

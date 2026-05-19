@@ -1,7 +1,7 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc, getDoc, onSnapshot } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, query, where, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -31,6 +31,34 @@ const firebaseConfig = {
 
 };
 
+let userName = null;
+
+async function checkUserName() {
+    const storedName = localStorage.getItem("couplesCornerName");
+    if (storedName) {
+        userName = storedName;
+    } else {
+        document.getElementById("name-modal").classList.remove("hidden");
+    }
+}
+
+document.getElementById("name-submit-btn").addEventListener("click", () => {
+    const nameInput = document.getElementById("name-input").value.trim();
+    if (nameInput) {
+        userName = nameInput;
+        localStorage.setItem("couplesCornerName", nameInput);
+        document.getElementById("name-modal").classList.add("hidden");
+    }
+});
+
+document.getElementById("name-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") {
+        document.getElementById("name-submit-btn").click();
+    }
+});
+
+checkUserName();
+
 
 
 // Initialize Firebase
@@ -40,6 +68,285 @@ const analytics = getAnalytics(app);
 const db = getFirestore(app);
 const WEATHER_API_KEY = "d47c5d80f0a52e814ae14977826b50d6"
 const storage = getStorage(app);
+
+document.getElementById("stack-of-books").addEventListener("click", () => {
+    document.getElementById("books-modal").classList.remove("hidden");
+});
+
+document.getElementById("close-books-btn").addEventListener("click", () => {
+    document.getElementById("books-modal").classList.add("hidden");
+});
+
+document.querySelectorAll(".tab-btn").forEach(btn => {
+    btn.addEventListener("click", () => {
+        // Update active tab button
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
+        // Show correct panel
+        document.querySelectorAll(".tab-panel").forEach(panel => panel.classList.add("hidden"));
+        document.getElementById(`tab-${btn.dataset.tab}`).classList.remove("hidden");
+    });
+});
+
+async function searchBooks(searchTerm) {
+    try {
+        const response = await fetch(
+            `https://www.googleapis.com/books/v1/volumes?q=${encodeURIComponent(searchTerm)}&maxResults=8&key=AIzaSyBEDxzjEjpUHYJbN78hKia49QM0kTOJICY`
+        );
+        const data = await response.json();
+        console.log("API response:", data);
+
+        if (!data.items) {
+            document.getElementById("search-results").innerHTML = 
+                "<p style='color: #a08060;'>No books found.</p>";
+            return;
+        }
+
+        displaySearchResults(data.items);
+
+    } catch (error) {
+        console.error("Error searching books:", error);
+    }
+}
+
+function displaySearchResults(books) {
+    const container = document.getElementById("search-results");
+    container.innerHTML = "";
+
+    books.forEach(book => {
+        const info = book.volumeInfo;
+        const title = info.title || "Unknown Title";
+        const author = info.authors ? info.authors.join(", ") : "Unknown Author";
+        const blurb = info.description || "No description available.";
+        const cover = info.imageLinks?.thumbnail || "assets/no-cover.png";
+        const googleId = book.id;
+
+        const banner = document.createElement("div");
+        banner.classList.add("book-banner");
+        banner.innerHTML = `
+            <img class="book-cover" src="${cover}" alt="${title}">
+            <div class="book-info">
+                <p class="book-title">${title}</p>
+                <p class="book-author">${author}</p>
+                <p class="book-blurb">${blurb}</p>
+                <div class="book-actions">
+                    <button onclick="addToRecommended('${googleId}', \`${title.replace(/`/g, "'")}\`, \`${author.replace(/`/g, "'")}\`, '${cover}', \`${blurb.replace(/`/g, "'").substring(0, 200)}\`)">
+                        + Add to Reading List
+                    </button>
+                </div>
+            </div>
+        `;
+
+        container.appendChild(banner);
+    });
+}
+
+document.getElementById("book-search-btn").addEventListener("click", () => {
+    const query = document.getElementById("book-search-input").value.trim();
+    if (query) searchBooks(query);
+});
+
+document.getElementById("book-search-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") document.getElementById("book-search-btn").click();
+});
+
+window.addToRecommended = async (googleId, title, author, cover, blurb) => {
+    try {
+        await addDoc(collection(db, "books"), {
+            googleId,
+            title,
+            author,
+            cover,
+            blurb,
+            status: "recommended",
+            addedBy: userName,
+            ratings: {},
+            reviews: {},
+            progress: {}
+        });
+        console.log("Book added to reading list!");
+        
+        // Clear search results
+        document.getElementById("search-results").innerHTML = 
+            "<p style='color: #a08060; font-size: 13px;'>✓ Book added to your reading list!</p>";
+        document.getElementById("book-search-input").value = "";
+        
+        // Reload books
+        loadBooks();
+        // Switch to recommended tab
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        document.querySelectorAll(".tab-panel").forEach(p => p.classList.add("hidden"));
+        document.querySelector("[data-tab='recommended']").classList.add("active");
+        document.getElementById("tab-recommended").classList.remove("hidden");
+    } catch (error) {
+        console.error("Error adding book:", error);
+    }
+}
+
+async function loadBooks() {
+    const q = query(collection(db, "books"));
+    const snapshot = await getDocs(q);
+
+    const recommended = [];
+    const inprogress = [];
+    const completed = [];
+
+    snapshot.forEach(doc => {
+        const book = { id: doc.id, ...doc.data() };
+        if (book.status === "recommended") recommended.push(book);
+        else if (book.status === "inprogress") inprogress.push(book);
+        else if (book.status === "completed") completed.push(book);
+    });
+
+    displayBookList(recommended, "recommended-list", "recommended");
+    displayBookList(inprogress, "inprogress-list", "inprogress");
+    displayBookList(completed, "completed-list", "completed");
+}
+
+function displayBookList(books, containerId, status) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+
+    if (books.length === 0) {
+        container.innerHTML = "<p style='color: #a08060; font-size: 13px;'>Nothing here yet.</p>";
+        return;
+    }
+
+    books.forEach(book => {
+        const banner = document.createElement("div");
+        banner.classList.add("book-banner");
+
+        let actionsHTML = "";
+
+        if (status === "recommended") {
+            actionsHTML = `
+                <button onclick="moveBook('${book.id}', 'inprogress')">Start Reading</button>
+            `;
+        } else if (status === "inprogress") {
+            actionsHTML = `
+                <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                    <input type="number" placeholder="Pages read" 
+                        id="pages-${book.id}" 
+                        value="${book.progress?.[userName] || ''}"
+                        style="width:100px; padding:4px 8px; border-radius:6px; border:2px solid #6c492e; background:#1a0f07; color:#f0e6d3; font-family:Georgia,serif; font-size:11px;">
+                    <button onclick="logPages('${book.id}')">Log Pages</button>
+                    <button onclick="moveBook('${book.id}', 'completed')">Mark Complete</button>
+                </div>
+                ${book.progress ? `<p style="color:#a08060; font-size:11px; margin-top:5px;">${formatProgress(book.progress)}</p>` : ""}
+            `;
+        } else if (status === "completed") {
+            if (status === "completed") {
+                const alreadyRated = book.ratings?.[userName];
+                const alreadyReviewed = book.reviews?.[userName];
+
+                actionsHTML = `
+                    <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+                        ${!alreadyRated ? `
+                            <input type="number" min="1" max="10" placeholder="Your rating /10" 
+                                id="rating-${book.id}"
+                                style="width:120px; padding:4px 8px; border-radius:6px; border:2px solid #6c492e; background:#1a0f07; color:#f0e6d3; font-family:Georgia,serif; font-size:11px;">
+                            <button onclick="submitRating('${book.id}')">Rate</button>
+                        ` : `<p style="color:#f0c070; font-size:11px;">Your rating: ${alreadyRated}/10</p>`}
+                    </div>
+                    <div style="margin-top:8px;">
+                        ${!alreadyReviewed ? `
+                            <textarea placeholder="Write your review..." 
+                                id="review-${book.id}"
+                                style="width:100%; padding:6px; border-radius:6px; border:2px solid #6c492e; background:#1a0f07; color:#f0e6d3; font-family:Georgia,serif; font-size:11px; resize:vertical;"></textarea>
+                            <button onclick="submitReview('${book.id}')">Save Review</button>
+                        ` : `<p style="color:#a08060; font-size:11px; margin-top:4px;"><em>Your review:</em> "${alreadyReviewed}"</p>`}
+                    </div>
+                    ${formatRatingsAndReviews(book)}
+                `;
+}
+        }
+
+        banner.innerHTML = `
+            <img class="book-cover" src="${book.cover}" alt="${book.title}">
+            <div class="book-info">
+                <p class="book-title">${book.title}</p>
+                <p class="book-author">${book.author}</p>
+                <p class="book-blurb">${book.blurb}</p>
+                <p style="color:#a08060; font-size:11px;">Added by ${book.addedBy}</p>
+                <div class="book-actions">${actionsHTML}</div>
+            </div>
+        `;
+
+        container.appendChild(banner);
+    });
+}
+
+function formatProgress(progress) {
+    return Object.entries(progress)
+        .map(([name, pages]) => `${name}: page ${pages}`)
+        .join(" · ");
+}
+
+function formatRatingsAndReviews(book) {
+    let html = "";
+    if (book.ratings && Object.keys(book.ratings).length > 0) {
+        html += `<div style="margin-top:8px;">`;
+        Object.entries(book.ratings).forEach(([name, rating]) => {
+            html += `<p style="color:#f0c070; font-size:11px;">${name}: ${rating}/10</p>`;
+        });
+        html += `</div>`;
+    }
+    if (book.reviews && Object.keys(book.reviews).length > 0) {
+        Object.entries(book.reviews).forEach(([name, review]) => {
+            html += `<p style="color:#a08060; font-size:11px; margin-top:4px;"><em>${name}:</em> "${review}"</p>`;
+        });
+    }
+    return html;
+}
+
+window.moveBook = async (bookId, newStatus) => {
+    try {
+        await updateDoc(doc(db, "books", bookId), { status: newStatus });
+        loadBooks();
+    } catch (error) {
+        console.error("Error moving book:", error);
+    }
+}
+
+window.logPages = async (bookId) => {
+    const pages = document.getElementById(`pages-${bookId}`).value;
+    if (!pages) return;
+    try {
+        await updateDoc(doc(db, "books", bookId), {
+            [`progress.${userName}`]: parseInt(pages)
+        });
+        loadBooks();
+    } catch (error) {
+        console.error("Error logging pages:", error);
+    }
+}
+
+window.submitRating = async (bookId) => {
+    const rating = document.getElementById(`rating-${bookId}`).value;
+    if (!rating) return;
+    try {
+        await updateDoc(doc(db, "books", bookId), {
+            [`ratings.${userName}`]: parseInt(rating)
+        });
+        loadBooks();
+    } catch (error) {
+        console.error("Error submitting rating:", error);
+    }
+}
+
+window.submitReview = async (bookId) => {
+    const review = document.getElementById(`review-${bookId}`).value.trim();
+    if (!review) return;
+    try {
+        await updateDoc(doc(db, "books", bookId), {
+            [`reviews.${userName}`]: review
+        });
+        loadBooks();
+    } catch (error) {
+        console.error("Error submitting review:", error);
+    }
+}
 
 // TEST WRITE FUNCTION
 async function testWrite() {
