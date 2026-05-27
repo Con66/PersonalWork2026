@@ -69,6 +69,10 @@ const db = getFirestore(app);
 const WEATHER_API_KEY = "d47c5d80f0a52e814ae14977826b50d6"
 const storage = getStorage(app);
 
+document.getElementById("record-player").addEventListener("click", () => {
+    
+})
+
 document.getElementById("stack-of-books").addEventListener("click", () => {
     document.getElementById("books-modal").classList.remove("hidden");
 });

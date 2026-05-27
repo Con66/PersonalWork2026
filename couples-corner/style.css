@@ -88,6 +88,19 @@ body {
     overflow: hidden;
 }
 
+.record-player {
+    display: flex;
+    justify-content: last baseline;
+    align-items: baseline;
+}
+
+.record-player img {
+    width: 200px;
+    height: auto;  /* keeps the aspect ratio intact */
+    cursor: pointer;
+}
+
+
 .weather-gif {
     width: 100%;
     height: 85%;
