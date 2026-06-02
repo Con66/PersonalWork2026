@@ -1,9 +1,11 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-analytics.js";
-import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, query, where, getDocs, updateDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, doc, setDoc, getDoc, onSnapshot, collection, addDoc, query, where, getDocs, updateDoc, deleteDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 import { getStorage, ref, uploadBytes, getDownloadURL, listAll } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-storage.js";
+
+
 // TODO: Add SDKs for Firebase products that you want to use
 
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -32,22 +34,28 @@ const firebaseConfig = {
 };
 
 let userName = null;
+let activeDisc = null; // tracks which disc is being searched - "left" or "right"
+let currentSongs = { left: null, right: null }; // tracks current song on each disc
+let userSide = null;
 
 async function checkUserName() {
     const storedName = localStorage.getItem("couplesCornerName");
     if (storedName) {
         userName = storedName;
+        await assignUserSide();  // add this line
     } else {
         document.getElementById("name-modal").classList.remove("hidden");
     }
 }
 
-document.getElementById("name-submit-btn").addEventListener("click", () => {
+document.getElementById("name-submit-btn").addEventListener("click", async () => {
     const nameInput = document.getElementById("name-input").value.trim();
     if (nameInput) {
         userName = nameInput;
         localStorage.setItem("couplesCornerName", nameInput);
         document.getElementById("name-modal").classList.add("hidden");
+        await assignUserSide();
+        loadBooks();
     }
 });
 
@@ -57,7 +65,7 @@ document.getElementById("name-input").addEventListener("keydown", (e) => {
     }
 });
 
-checkUserName();
+
 
 
 
@@ -70,16 +78,152 @@ const WEATHER_API_KEY = "d47c5d80f0a52e814ae14977826b50d6"
 const storage = getStorage(app);
 
 document.getElementById("record-player").addEventListener("click", () => {
-    
-})
+    document.getElementById("music-modal").classList.remove("hidden");
+});
 
 document.getElementById("stack-of-books").addEventListener("click", () => {
     document.getElementById("books-modal").classList.remove("hidden");
+    loadBooks();
 });
 
 document.getElementById("close-books-btn").addEventListener("click", () => {
     document.getElementById("books-modal").classList.add("hidden");
 });
+
+document.getElementById("close-music-btn").addEventListener("click", () => {
+    document.getElementById("music-modal").classList.add("hidden");
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+});
+
+document.getElementById("search-btn-left").addEventListener("click", () => {
+    activeDisc = "left";
+    document.getElementById("music-search-panel").classList.remove("hidden");
+    document.getElementById("music-search-input").focus();
+});
+
+document.getElementById("search-btn-right").addEventListener("click", () => {
+    activeDisc = "right";
+    document.getElementById("music-search-panel").classList.remove("hidden");
+    document.getElementById("music-search-input").focus();
+});
+
+document.getElementById("music-search-close").addEventListener("click", () => {
+    document.getElementById("music-search-panel").classList.add("hidden");
+    document.getElementById("music-search-results").innerHTML = "";
+    document.getElementById("music-search-input").value = "";
+});
+
+async function searchMusic(searchTerm) {
+    try {
+        const response = await fetch(
+            `https://itunes.apple.com/search?term=${encodeURIComponent(searchTerm)}&media=music&limit=8`
+        );
+        const data = await response.json();
+
+        if (!data.results || data.results.length === 0) {
+            document.getElementById("music-search-results").innerHTML =
+                "<p style='color:#97f0a7; font-size:12px;'>No results found.</p>";
+            return;
+        }
+
+        displayMusicResults(data.results);
+
+    } catch (error) {
+        console.error("Error searching music:", error);
+    }
+}
+
+function displayMusicResults(songs) {
+    const container = document.getElementById("music-search-results");
+    container.innerHTML = "";
+
+    songs.forEach(song => {
+        const title = song.trackName;
+        const artist = song.artistName;
+        const album = song.collectionName;
+        const cover = song.artworkUrl100;
+        const preview = song.previewUrl;
+        const trackId = song.trackId;
+
+        const result = document.createElement("div");
+        result.classList.add("music-result");
+        result.innerHTML = `
+            <img src="${cover}" alt="${title}">
+            <div class="music-result-info">
+                <p class="music-result-title">${title}</p>
+                <p class="music-result-artist">${artist} · ${album}</p>
+            </div>
+        `;
+
+        result.addEventListener("click", () => {
+            selectSong(trackId, title, artist, cover, preview);
+        });
+
+        container.appendChild(result);
+    });
+}
+
+document.getElementById("music-search-btn").addEventListener("click", () => {
+    const term = document.getElementById("music-search-input").value.trim();
+    if (term) searchMusic(term);
+});
+
+document.getElementById("music-search-input").addEventListener("keydown", (e) => {
+    if (e.key === "Enter") document.getElementById("music-search-btn").click();
+});
+
+let currentAudio = null;
+
+function selectSong(trackId, title, artist, cover, preview) {
+    if (!activeDisc) return;
+
+    // Save current song state
+    currentSongs[activeDisc] = { trackId, title, artist, cover, preview };
+
+    // Update vinyl label
+    const label = document.getElementById(`vinyl-label-${activeDisc}`);
+    label.innerHTML = `<img src="${cover}" alt="${title}">`;
+
+    // Start spinning
+    document.getElementById(`vinyl-${activeDisc}`).classList.add("spinning");
+
+    // Show add to playlist button
+    document.getElementById(`add-btn-${activeDisc}`).classList.remove("hidden");
+
+    // Play preview
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+
+    if (preview) {
+        currentAudio = new Audio(preview);
+        currentAudio.play();
+    }
+
+    // Save to Firestore so partner sees it too
+    saveDiscToFirestore(activeDisc, { trackId, title, artist, cover, preview });
+
+    // Close search panel
+    document.getElementById("music-search-panel").classList.add("hidden");
+    document.getElementById("music-search-results").innerHTML = "";
+    document.getElementById("music-search-input").value = "";
+}
+
+async function saveDiscToFirestore(side, songData) {
+    try {
+        await setDoc(docRef, {
+            [`disc_${side}`]: songData
+        }, { merge: true });
+    } catch (error) {
+        console.error("Error saving disc:", error);
+    }
+}
+
+
 
 document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => {
@@ -226,6 +370,7 @@ function displayBookList(books, containerId, status) {
         if (status === "recommended") {
             actionsHTML = `
                 <button onclick="moveBook('${book.id}', 'inprogress')">Start Reading</button>
+                <button onclick="removeBook('${book.id}')">Remove</button>
             `;
         } else if (status === "inprogress") {
             actionsHTML = `
@@ -279,6 +424,106 @@ function displayBookList(books, containerId, status) {
 
         container.appendChild(banner);
     });
+}
+
+window.removeBook = async (bookId) => {
+    try {
+        await deleteDoc(doc(db, "books", bookId));
+        loadBooks();
+    } catch (error) {
+        console.error("Error removing book:", error);
+    }
+}
+
+document.getElementById("add-btn-left").addEventListener("click", () => {
+    if (currentSongs.left) addToPlaylist(currentSongs.left);
+});
+
+document.getElementById("add-btn-right").addEventListener("click", () => {
+    if (currentSongs.right) addToPlaylist(currentSongs.right);
+});
+
+async function addToPlaylist(song) {
+    try {
+        await addDoc(collection(db, "playlist"), {
+            ...song,
+            addedBy: userName,
+            addedAt: new Date().toISOString()
+        });
+        console.log("Added to playlist!");
+        loadPlaylist();
+    } catch (error) {
+        console.error("Error adding to playlist:", error);
+    }
+}
+
+async function loadPlaylist() {
+    try {
+        const snapshot = await getDocs(collection(db, "playlist"));
+        const container = document.getElementById("playlist-list");
+        container.innerHTML = "";
+
+        if (snapshot.empty) {
+            container.innerHTML = "<p style='color:#97f0a7; font-size:12px;'>No songs yet!</p>";
+            return;
+        }
+
+        snapshot.forEach(docSnap => {
+            const song = docSnap.data();
+            const item = document.createElement("div");
+            item.classList.add("playlist-item");
+            item.innerHTML = `
+                <img src="${song.cover}" alt="${song.title}">
+                <div class="playlist-item-info">
+                    <p class="playlist-item-title">${song.title}</p>
+                    <p class="playlist-item-artist">${song.artist}</p>
+                    <p class="playlist-item-added">Added by ${song.addedBy}</p>
+                </div>
+                ${song.preview ? `
+                    <button class="playlist-item-preview" 
+                        onclick="playPreview('${song.preview}')">▶ Preview</button>
+                ` : ""}
+            `;
+            container.appendChild(item);
+        });
+
+    } catch (error) {
+        console.error("Error loading playlist:", error);
+    }
+}
+
+document.getElementById("record-player").addEventListener("click", () => {
+    document.getElementById("music-modal").classList.remove("hidden");
+    loadPlaylist();
+});
+
+document.getElementById("vinyl-left").addEventListener("click", () => {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+    else if (currentSongs.left?.preview) {
+        playPreview(currentSongs.left.preview);
+    }
+});
+
+document.getElementById("vinyl-right").addEventListener("click", () => {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+    if (currentSongs.right?.preview) {
+        playPreview(currentSongs.right.preview);
+    }
+});
+
+window.playPreview = (previewUrl) => {
+    if (currentAudio) {
+        currentAudio.pause();
+        currentAudio = null;
+    }
+    currentAudio = new Audio(previewUrl);
+    currentAudio.play();
 }
 
 function formatProgress(progress) {
@@ -366,6 +611,35 @@ async function testWrite() {
     }
 }
 
+function setupNamePlate(side) {
+    const editBtn = document.getElementById(`name-plate-edit-${side}`);
+    const input = document.getElementById(`name-plate-input-${side}`);
+    const nameText = document.getElementById(`name-plate-text-${side}`);
+
+    editBtn.addEventListener("click", () => {
+        input.classList.remove("hidden");
+        input.focus();
+        editBtn.classList.add("hidden");
+    });
+
+    input.addEventListener("keydown", async (e) => {
+        if (e.key === "Enter") {
+            const name = input.value.trim();
+            if (name) {
+                nameText.textContent = name;
+                await setDoc(docRef, {
+                    [`nameplate_${side}`]: name
+                }, { merge: true });
+            }
+            input.classList.add("hidden");
+            editBtn.classList.remove("hidden");
+            input.value = "";
+        }
+    });
+}
+
+setupNamePlate("left");
+setupNamePlate("right");
 
 async function testRead() {
     try {
@@ -645,15 +919,44 @@ function getTempColor(temp) {
     return `rgb(${r}, ${g}, ${b})`;
 }
 
+
+
 // Listen for real time changes
 const docRef = doc(db, "room", "state");
 
 onSnapshot(docRef, (docSnap) => {
     if (docSnap.exists()) {
         const state = docSnap.data();
-
+        
         const flames = document.getElementById("flames");
         const fireplaceEl = document.getElementById("fireplace");
+
+        // Inside your existing onSnapshot, add these lines:
+        if (state.disc_left) {
+            updateDiscUI("left", state.disc_left);
+        }
+        if (state.disc_right) {
+            updateDiscUI("right", state.disc_right);
+        }
+
+        if (state.nameplate_left) {
+    document.getElementById("name-plate-text-left").textContent = state.nameplate_left;
+        }
+        if (state.nameplate_right) {
+            document.getElementById("name-plate-text-right").textContent = state.nameplate_right;
+        }
+        if (state.side_left) {
+    document.getElementById("mood-nameplate-left").textContent = state.side_left;
+        }
+        if (state.side_right) {
+            document.getElementById("mood-nameplate-right").textContent = state.side_right;
+        }
+        if (state.mood_left) {
+            updateMoodLight("left", state.mood_left);
+        }
+        if (state.mood_right) {
+            updateMoodLight("right", state.mood_right);
+        }
 
         if (state.fireplace) {
             flames.classList.remove("hidden");
@@ -676,6 +979,14 @@ onSnapshot(docRef, (docSnap) => {
     }
 });
 
+function updateDiscUI(side, songData) {
+    const label = document.getElementById(`vinyl-label-${side}`);
+    label.innerHTML = `<img src="${songData.cover}" alt="${songData.title}">`;
+    document.getElementById(`vinyl-${side}`).classList.add("spinning");
+    document.getElementById(`add-btn-${side}`).classList.remove("hidden");
+    currentSongs[side] = songData;
+}
+
 // Left window
 document.getElementById("location-btn-left").addEventListener("click", () => {
     document.getElementById("location-input-left").classList.remove("hidden");
@@ -693,6 +1004,133 @@ document.getElementById("location-input-left").addEventListener("keydown", async
     }
 });
 
+// ── Mood Definitions ──
+const MOODS = [
+    { name: "Happy",       color: "#a855f7" },
+    { name: "Loving",      color: "#f472b6" },
+    { name: "Excited",     color: "#f97316" },
+    { name: "Peaceful",    color: "#60a5fa" },
+    { name: "Grateful",    color: "#34d399" },
+    { name: "Hopeful",     color: "#fbbf24" },
+    { name: "Playful",     color: "#e879f9" },
+    { name: "Romantic",    color: "#fb7185" },
+    { name: "Cozy",        color: "#d97706" },
+    { name: "Confident",   color: "#f59e0b" },
+    { name: "Inspired",    color: "#818cf8" },
+    { name: "Nostalgic",   color: "#a78bfa" },
+    { name: "Calm",        color: "#67e8f9" },
+    { name: "Tired",       color: "#94a3b8" },
+    { name: "Bored",       color: "#6b7280" },
+    { name: "Anxious",     color: "#facc15" },
+    { name: "Sad",         color: "#3b82f6" },
+    { name: "Frustrated",  color: "#ef4444" },
+    { name: "Angry",       color: "#b91c1c" },
+    { name: "Overwhelmed", color: "#7c3aed" },
+    { name: "Sick",        color: "#84cc16" },
+    { name: "Lonely",      color: "#475569" },
+    { name: "Stressed",    color: "#f87171" },
+    { name: "Melancholy",  color: "#6366f1" }
+];
+
+// ── Build Mood Grid ──
+function buildMoodGrid() {
+    const grid = document.getElementById("mood-grid");
+    grid.innerHTML = "";
+
+    MOODS.forEach(mood => {
+        const btn = document.createElement("button");
+        btn.classList.add("mood-btn");
+        btn.innerHTML = `
+            <div class="mood-circle" style="background-color: ${mood.color};"></div>
+            <p class="mood-label">${mood.name}</p>
+        `;
+        btn.addEventListener("click", () => selectMood(mood));
+        grid.appendChild(btn);
+    });
+}
+
+// ── Track Which Light Is Active ──
+let activeMoodSide = null;
+
+// ── Open Mood Panel ──
+function openMoodPanel(side) {
+    activeMoodSide = side;
+    buildMoodGrid();
+    document.getElementById("mood-panel").classList.remove("hidden");
+}
+
+document.getElementById("mood-light-wrapper-left").addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (userSide === "left") openMoodPanel("left");
+});
+
+document.getElementById("mood-light-wrapper-right").addEventListener("click", (e) => {
+    e.stopPropagation();
+    if (userSide === "right") openMoodPanel("right");
+});
+
+document.getElementById("close-mood-panel").addEventListener("click", () => {
+    document.getElementById("mood-panel").classList.add("hidden");
+});
+
+//testing
+console.log(document.getElementById("mood-light-wrapper-left"));
+
+// ── Select Mood ──
+async function selectMood(mood) {
+    if (!activeMoodSide) return;
+
+    try {
+        await setDoc(docRef, {
+            [`mood_${activeMoodSide}`]: {
+                name: mood.name,
+                color: mood.color,
+                setBy: userName
+            }
+        }, { merge: true });
+
+        document.getElementById("mood-panel").classList.add("hidden");
+        activeMoodSide = null;  // reset after selection
+    } catch (error) {
+        console.error("Error setting mood:", error);
+    }
+}
+
+
+
+async function assignUserSide() {
+    console.log("assignUserSide running, userName:", userName);
+    const stateSnap = await getDoc(docRef);
+    const state = stateSnap.data() || {};
+
+    if (state.side_left === userName) {
+        userSide = "left";
+    } else if (state.side_right === userName) {
+        userSide = "right";
+    } else if (!state.side_left) {
+        await setDoc(docRef, { side_left: userName }, { merge: true });
+        userSide = "left";
+    } else if (!state.side_right) {
+        await setDoc(docRef, { side_right: userName }, { merge: true });
+        userSide = "right";
+    }
+
+    console.log("User side assigned:", userSide);
+}
+
+// ── Update Light UI ──
+function updateMoodLight(side, moodData) {
+    console.log("Updating mood light:", side, moodData);
+    
+    const dome = document.getElementById(`mood-dome-${side}`);
+    const nameplate = document.getElementById(`mood-nameplate-${side}`);
+
+    dome.style.background = `radial-gradient(ellipse at 50% 0%, ${moodData.color}, ${moodData.color}99)`;
+    dome.style.boxShadow = `0 4px 20px ${moodData.color}88`;
+    nameplate.innerHTML = `${moodData.setBy}: <span style="color: ${moodData.color};">${moodData.name}</span>`;
+}
+
+
 // Right window
 document.getElementById("location-btn-right").addEventListener("click", () => {
     document.getElementById("location-input-right").classList.remove("hidden");
@@ -709,6 +1147,9 @@ document.getElementById("location-input-right").addEventListener("keydown", asyn
         }
     }
 });
+
+
+checkUserName();
 
 
 //testing functions:

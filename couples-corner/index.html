@@ -14,7 +14,26 @@
             <h1>Couples Corner</h1>
             <p id="status">Welcome back</p>
         </div>
+        
+        <!-- Mood Light Left -->
+            <div class="mood-light-wrapper" id="mood-light-wrapper-left">
+                <div class="light-fixture">
+                    <div class="light-base"></div>
+                    <div class="light-dome" id="mood-dome-left"></div>
+                </div>
+                <p class="mood-nameplate" id="mood-nameplate-left">...</p>
+            </div>
 
+        <!-- Mood Light Right -->
+        <div class="mood-light-wrapper" id="mood-light-wrapper-right">
+                <div class="light-fixture">
+                    <div class="light-base"></div>
+                    <div class="light-dome" id="mood-dome-right"></div>
+                </div>
+                <p class="mood-nameplate" id="mood-nameplate-right">...</p>
+            </div>
+
+            
         <!-- Main Room -->
         <div id="room">
 
@@ -29,12 +48,12 @@
                     <button class="location-btn" id="location-btn-left">Change</button>
                     <input class="location-input hidden" id="location-input-left" type="text" placeholder="Enter city...">
                 </div>
-                <div class="record-player">
+                <div class="record-player" id="record-player">
                     <img src="assets/record-player.png" alt="record player">
                 </div>
             </div>
 
-            
+           
 
            <div id="fireplace-wrapper">
             
@@ -49,8 +68,8 @@
             <div id="upload-panel" class="hidden">
                 <input type="file" id="photo-upload" accept="image/*">
                 <button id="upload-btn">Upload</button>
-                <button id="close-upload-btn">Cancel</button>
                 <button id="view-album-btn">View Album</button>
+                <button id="close-upload-btn">Cancel</button>
             </div>
             
             <!-- Gallery Panel -->
@@ -88,6 +107,9 @@
             </div>
 
         </div>
+        
+
+        
 
         <!-- Second Window-->
             <div class="window-wrapper" id="window-wrapper-right">
@@ -102,15 +124,123 @@
                 </div>
             </div>
 
-            
+        
+            <!-- Mood Panel -->
+            <div id="mood-panel" class="hidden">
+                <div id="mood-panel-inner">
+                    <div id="mood-panel-header">
+                        <h3>How are you feeling?</h3>
+                        <button id="close-mood-panel">✕</button>
+                    </div>
+                    <div id="mood-grid"></div>
+                </div>
+            </div>
 
         </div>
 
-        <!-- Controls -->
-        <div id="controls">
+        
+        <!-- Music Recommendation Modal -->
+         <div id="music-modal" class="hidden">
             
-            <button id="weather-btn">Toggle Weather</button>
+            <!-- Modal Header -->
+            <div id="music-header">
+                <h2>Heartfelt Tunes</h2>
+                <button id="close-music-btn">✕</button>
+            </div>
+            
+            <!-- DJ Light Rig -->
+            <div id="light-rig">
+                <div class="dj-light">
+                    <div class="light-head delay-0"></div>
+                    <div class="light-beam left-beam delay-0"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-1"></div>
+                    <div class="light-beam left-beam delay-1"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-2"></div>
+                    <div class="light-beam left-beam delay-2"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-3"></div>
+                    <div class="light-beam left-beam delay-3"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-0"></div>
+                    <div class="light-beam right-beam delay-0"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-1"></div>
+                    <div class="light-beam right-beam delay-1"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-2"></div>
+                    <div class="light-beam right-beam delay-2"></div>
+                </div>
+                <div class="dj-light">
+                    <div class="light-head delay-3"></div>
+                    <div class="light-beam right-beam delay-3"></div>
+                </div>
+            </div>
+
+            <!-- Vinyl Discs -->
+            <div id="vinyl-section">
+                <!-- Left Disc -->
+                <div class="vinyl-wrapper" id="vinyl-left-wrapper">
+                    <div class="vinyl-disc" id="vinyl-left">
+                        <div class="vinyl-label" id="vinyl-label-left">
+                            <p class="vinyl-title">Pick a song</p>
+                        </div>
+                    </div>
+                    <div class="name-plate" id="name-plate-left">
+                        <span id="name-plate-text-left">Your Name</span>
+                        <button class="name-plate-edit" id="name-plate-edit-left">✎</button>
+                        <input class="name-plate-input hidden" id="name-plate-input-left" type="text" placeholder="Enter name...">
+                    </div>
+                    <button class="vinyl-search-btn" id="search-btn-left">Search Song</button>
+                    <button class="vinyl-add-btn hidden" id="add-btn-left">+ Add to Playlist</button>
+                </div>
+
+                <!-- Right Disc -->
+                <div class="vinyl-wrapper" id="vinyl-right-wrapper">
+                    <div class="vinyl-disc" id="vinyl-right">
+                        <div class="vinyl-label" id="vinyl-label-right">
+                            <p class="vinyl-title">Pick a song</p>
+                        </div>
+                    </div>
+                    <div class="name-plate" id="name-plate-right">
+                        <span id="name-plate-text-right">Your Name</span>
+                        <button class="name-plate-edit" id="name-plate-edit-right">✎</button>
+                        <input class="name-plate-input hidden" id="name-plate-input-right" type="text" placeholder="Enter name...">
+                    </div>
+                    <button class="vinyl-search-btn" id="search-btn-right">Search Song</button>
+                    <button class="vinyl-add-btn hidden" id="add-btn-right">+ Add to Playlist</button>
+                </div>
+
+                 
+            </div>
+
+            <!-- Search Panel -->
+            <div id="music-search-panel" class="hidden">
+                <div id="music-search-bar">
+                    <input type="text" id="music-search-input" placeholder="Search song or artist...">
+                    <button id="music-search-btn">Search</button>
+                    <button id="music-search-close">✕</button>
+                </div>
+                <div id="music-search-results"></div>
+            </div>
+
+            <!-- Joint Playlist -->
+            <div id="joint-playlist">
+                <h3>Our Playlist</h3>
+                <div id="playlist-list"></div>
+            </div>
+
         </div>
+
+            </div>
+         </div>
 
         <!-- Books Modal -->
         <div id="books-modal" class="hidden">
