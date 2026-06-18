@@ -105,6 +105,17 @@ body {
     cursor: pointer;
 }
 
+.tv {
+    display: flex;
+    justify-content: last baseline;
+    align-items: baseline;
+}
+
+.tv img {
+    width: 200px;
+    height: auto;
+    cursor: pointer;
+}
 
 .weather-gif {
     width: 100%;
