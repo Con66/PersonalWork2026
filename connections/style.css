@@ -1,0 +1,351 @@
+/* ============================================================
+   Shared styles for both the Creator page and the Player page.
+   Palette and layout are modeled on NYT's Connections game.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;600;700;800&family=Georgia&display=swap');
+
+:root {
+  /* NYT Connections difficulty colors, easiest -> hardest */
+  --yellow: #f9df6d;
+  --green: #a0c35a;
+  --blue: #b0c4ef;
+  --purple: #ba81c5;
+
+  --ink: #000000;
+  --gray-text: #5a5a5a;
+  --tile-bg: #efefe6;
+  --tile-bg-selected: #5a594e;
+  --page-bg: #ffffff;
+  --border-radius-tile: 10px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Libre Franklin', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--page-bg);
+  color: var(--ink);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 24px 16px 60px;
+}
+
+.app-header {
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.app-header h1 {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-weight: 700;
+  font-size: 2.4rem;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.app-header p {
+  color: var(--gray-text);
+  font-size: 0.95rem;
+  margin: 6px 0 0;
+}
+
+.app-nav {
+  margin-top: 10px;
+  font-size: 0.85rem;
+}
+
+.app-nav a {
+  color: var(--gray-text);
+  text-decoration: underline;
+  margin: 0 8px;
+}
+
+/* ---------------- Player: puzzle grid ---------------- */
+
+.game-wrap {
+  width: 100%;
+  max-width: 560px;
+  margin-top: 24px;
+}
+
+.status-line {
+  text-align: center;
+  min-height: 24px;
+  font-weight: 600;
+  margin-bottom: 14px;
+}
+
+.status-line.error {
+  color: #b3261e;
+}
+
+.solved-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.solved-group {
+  border-radius: var(--border-radius-tile);
+  padding: 18px 10px;
+  text-align: center;
+  animation: popIn 0.35s ease;
+}
+
+.solved-group .cat-name {
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: block;
+  font-size: 1rem;
+}
+
+.solved-group .cat-words {
+  font-size: 0.95rem;
+  margin-top: 2px;
+  display: block;
+}
+
+.solved-group.yellow { background: var(--yellow); }
+.solved-group.green { background: var(--green); }
+.solved-group.blue { background: var(--blue); }
+.solved-group.purple { background: var(--purple); }
+
+@keyframes popIn {
+  0% { transform: scale(0.9); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.tile-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.tile {
+  background: var(--tile-bg);
+  border: none;
+  border-radius: var(--border-radius-tile);
+  aspect-ratio: 1.4 / 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 6px;
+  cursor: pointer;
+  user-select: none;
+  transition: transform 0.1s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+}
+
+.tile.selected {
+  background: var(--tile-bg-selected);
+  color: #ffffff;
+}
+
+.tile:disabled {
+  cursor: default;
+}
+
+.tile-grid.shake .tile {
+  animation: shake 0.4s ease;
+}
+
+@keyframes shake {
+  10%, 90% { transform: translateX(-1px); }
+  20%, 80% { transform: translateX(2px); }
+  30%, 50%, 70% { transform: translateX(-4px); }
+  40%, 60% { transform: translateX(4px); }
+}
+
+.mistakes-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 18px 0;
+  font-size: 0.9rem;
+}
+
+.mistake-dots {
+  display: flex;
+  gap: 6px;
+}
+
+.mistake-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--tile-bg-selected);
+}
+
+.mistake-dot.used {
+  background: #d8d8d8;
+}
+
+.controls-row {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.btn {
+  border: 1px solid var(--ink);
+  background: #fff;
+  color: var(--ink);
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-weight: 700;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.btn:hover:not(:disabled) {
+  background: var(--ink);
+  color: #fff;
+}
+
+.btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ---------------- Creator page ---------------- */
+
+.creator-wrap {
+  width: 100%;
+  max-width: 640px;
+  margin-top: 16px;
+}
+
+.puzzle-meta {
+  margin-bottom: 16px;
+}
+
+.puzzle-meta select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.3);
+  font-size: 0.95rem;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.difficulty-badge {
+  display: inline-block;
+  margin: 0 auto 14px;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.difficulty-badge-wrap {
+  text-align: center;
+}
+
+.difficulty-badge.level-1 { background: #cfe8cf; color: #205020; }
+.difficulty-badge.level-2 { background: #ddedb8; color: #45570f; }
+.difficulty-badge.level-3 { background: #ffe1a8; color: #7a4a00; }
+.difficulty-badge.level-4 { background: #f7c5a3; color: #7a3300; }
+.difficulty-badge.level-5 { background: #f3b6b6; color: #7a1010; }
+
+.category-block {
+  border-radius: var(--border-radius-tile);
+  padding: 16px;
+  margin-bottom: 14px;
+}
+
+.category-block.yellow { background: color-mix(in srgb, var(--yellow) 35%, white); }
+.category-block.green { background: color-mix(in srgb, var(--green) 30%, white); }
+.category-block.blue { background: color-mix(in srgb, var(--blue) 30%, white); }
+.category-block.purple { background: color-mix(in srgb, var(--purple) 25%, white); }
+
+.category-block label.cat-label {
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  letter-spacing: 0.5px;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.category-block input.cat-name-input {
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.2);
+  margin-bottom: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+}
+
+.word-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.word-inputs input {
+  padding: 8px 10px;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.2);
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.save-status {
+  text-align: center;
+  min-height: 22px;
+  margin-top: 12px;
+  font-weight: 600;
+}
+
+.save-status.success { color: #2e7d32; }
+.save-status.error { color: #b3261e; }
+
+.puzzle-list {
+  margin-top: 30px;
+  border-top: 1px solid #eee;
+  padding-top: 16px;
+}
+
+.puzzle-list h2 {
+  font-size: 1.1rem;
+}
+
+.puzzle-list ul {
+  list-style: none;
+  padding: 0;
+  font-size: 0.9rem;
+}
+
+.puzzle-list li {
+  padding: 6px 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  justify-content: space-between;
+}

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conor's Connections</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Conor's Connections</h1>
+    <p>Create four groups of four!</p>
+    <!-- <nav class="app-nav">
+      <a href="creator.html">Creator tool</a>
+    </nav> -->
+  </header>
+
+  <main class="game-wrap">
+    <p id="status-line" class="status-line"></p>
+
+    <div class="difficulty-badge-wrap">
+      <span id="difficulty-badge" class="difficulty-badge" hidden></span>
+    </div>
+
+    <div id="solved-groups" class="solved-groups"></div>
+
+    <div id="tile-grid" class="tile-grid"></div>
+
+    <div class="mistakes-row">
+      <span>Mistakes remaining:</span>
+      <div id="mistake-dots" class="mistake-dots"></div>
+    </div>
+
+    <div class="controls-row">
+      <button id="shuffle-btn" class="btn">Shuffle</button>
+      <button id="deselect-btn" class="btn">Deselect all</button>
+      <button id="submit-btn" class="btn" disabled>Submit</button>
+    </div>
+  </main>
+
+  <script type="module" src="player.js"></script>
+</body>
+</html>

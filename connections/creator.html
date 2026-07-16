@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Connections - Creator</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="app-header">
+    <h1>Connections Creator</h1>
+    <p>Creator tool - build a new puzzle</p>
+    <nav class="app-nav">
+      <a href="index.html">Go to Player page</a>
+    </nav>
+  </header>
+
+  <main class="creator-wrap">
+    <form id="puzzle-form">
+
+      <div class="puzzle-meta">
+        <label class="cat-label" for="puzzle-difficulty">Overall puzzle difficulty (1-5)</label>
+        <select id="puzzle-difficulty" required>
+          <option value="1">1 - Easiest</option>
+          <option value="2">2</option>
+          <option value="3" selected>3</option>
+          <option value="4">4</option>
+          <option value="5">5 - Hardest</option>
+        </select>
+      </div>
+
+      <div class="category-block yellow">
+        <label class="cat-label">Group 1 - Yellow (easiest)</label>
+        <input type="text" class="cat-name-input" placeholder="Category name (e.g. ___ BALL)" data-group="0" data-field="category" required />
+        <div class="word-inputs">
+          <input type="text" placeholder="Word 1" data-group="0" data-word="0" required />
+          <input type="text" placeholder="Word 2" data-group="0" data-word="1" required />
+          <input type="text" placeholder="Word 3" data-group="0" data-word="2" required />
+          <input type="text" placeholder="Word 4" data-group="0" data-word="3" required />
+        </div>
+      </div>
+
+      <div class="category-block green">
+        <label class="cat-label">Group 2 - Green</label>
+        <input type="text" class="cat-name-input" placeholder="Category name" data-group="1" data-field="category" required />
+        <div class="word-inputs">
+          <input type="text" placeholder="Word 1" data-group="1" data-word="0" required />
+          <input type="text" placeholder="Word 2" data-group="1" data-word="1" required />
+          <input type="text" placeholder="Word 3" data-group="1" data-word="2" required />
+          <input type="text" placeholder="Word 4" data-group="1" data-word="3" required />
+        </div>
+      </div>
+
+      <div class="category-block blue">
+        <label class="cat-label">Group 3 - Blue</label>
+        <input type="text" class="cat-name-input" placeholder="Category name" data-group="2" data-field="category" required />
+        <div class="word-inputs">
+          <input type="text" placeholder="Word 1" data-group="2" data-word="0" required />
+          <input type="text" placeholder="Word 2" data-group="2" data-word="1" required />
+          <input type="text" placeholder="Word 3" data-group="2" data-word="2" required />
+          <input type="text" placeholder="Word 4" data-group="2" data-word="3" required />
+        </div>
+      </div>
+
+      <div class="category-block purple">
+        <label class="cat-label">Group 4 - Purple (hardest / trickiest)</label>
+        <input type="text" class="cat-name-input" placeholder="Category name" data-group="3" data-field="category" required />
+        <div class="word-inputs">
+          <input type="text" placeholder="Word 1" data-group="3" data-word="0" required />
+          <input type="text" placeholder="Word 2" data-group="3" data-word="1" required />
+          <input type="text" placeholder="Word 3" data-group="3" data-word="2" required />
+          <input type="text" placeholder="Word 4" data-group="3" data-word="3" required />
+        </div>
+      </div>
+
+      <div class="form-actions">
+        <button type="submit" class="btn">Publish puzzle</button>
+      </div>
+
+      <p id="save-status" class="save-status"></p>
+    </form>
+
+    <section class="puzzle-list">
+      <h2>Previously published puzzles</h2>
+      <ul id="puzzle-list-items">
+        <li>Loading...</li>
+      </ul>
+    </section>
+  </main>
+
+  <script type="module" src="creator.js"></script>
+</body>
+</html>
