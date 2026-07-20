@@ -3,41 +3,79 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Conor's Connections</title>
+  <title>Connections</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
   <header class="app-header">
-    <h1>Conor's Connections</h1>
+    <h1>Connections</h1>
     <p>Create four groups of four!</p>
-    <!-- <nav class="app-nav">
+    <nav class="app-nav">
       <a href="creator.html">Creator tool</a>
-    </nav> -->
+    </nav>
+    <div id="auth-status" class="auth-status" hidden>
+      Signed in as <strong id="auth-username"></strong> -
+      <button id="sign-out-btn" class="link-btn">Sign out</button>
+    </div>
   </header>
 
-  <main class="game-wrap">
-    <p id="status-line" class="status-line"></p>
-
-    <div class="difficulty-badge-wrap">
-      <span id="difficulty-badge" class="difficulty-badge" hidden></span>
+  <!-- Shown when nobody is signed in -->
+  <div id="signin-overlay" class="overlay" hidden>
+    <div class="overlay-card">
+      <h2>Sign in to play</h2>
+      <p>Sign in with Google to save your results and appear on the leaderboard.</p>
+      <label class="remember-row">
+        <input type="checkbox" id="remember-me" checked />
+        Keep me signed in on this device
+      </label>
+      <button id="signin-btn" class="btn">Sign in with Google</button>
+      <p id="signin-error" class="save-status error"></p>
     </div>
+  </div>
 
-    <div id="solved-groups" class="solved-groups"></div>
-
-    <div id="tile-grid" class="tile-grid"></div>
-
-    <div class="mistakes-row">
-      <span>Mistakes remaining:</span>
-      <div id="mistake-dots" class="mistake-dots"></div>
+  <!-- Shown once signed in, if this user hasn't picked a username yet -->
+  <div id="username-overlay" class="overlay" hidden>
+    <div class="overlay-card">
+      <h2>Choose a username</h2>
+      <p>This is how you'll appear on the leaderboard (2-20 characters).</p>
+      <form id="username-form">
+        <input type="text" id="username-input" placeholder="Username" maxlength="20" required />
+        <button type="submit" class="btn">Save username</button>
+      </form>
+      <p id="username-error" class="save-status error"></p>
     </div>
+  </div>
 
-    <div class="controls-row">
-      <button id="shuffle-btn" class="btn">Shuffle</button>
-      <button id="deselect-btn" class="btn">Deselect all</button>
-      <button id="submit-btn" class="btn" disabled>Submit</button>
-    </div>
-  </main>
+  <div class="page-layout">
+    <main class="game-wrap">
+      <p id="status-line" class="status-line"></p>
+
+      <div class="difficulty-badge-wrap">
+        <span id="difficulty-badge" class="difficulty-badge" hidden></span>
+      </div>
+
+      <div id="solved-groups" class="solved-groups"></div>
+
+      <div id="tile-grid" class="tile-grid"></div>
+
+      <div class="mistakes-row">
+        <span>Mistakes remaining:</span>
+        <div id="mistake-dots" class="mistake-dots"></div>
+      </div>
+
+      <div class="controls-row">
+        <button id="shuffle-btn" class="btn">Shuffle</button>
+        <button id="deselect-btn" class="btn">Deselect all</button>
+        <button id="submit-btn" class="btn" disabled>Submit</button>
+      </div>
+    </main>
+
+    <aside class="leaderboard-panel">
+      <h2>Leaderboard</h2>
+      <div id="leaderboard-body">Loading...</div>
+    </aside>
+  </div>
 
   <script type="module" src="player.js"></script>
 </body>

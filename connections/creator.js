@@ -8,6 +8,7 @@
 // ============================================================
 
 import { db } from "./firebase-config.js";
+import { watchAuthState, signIn, signOutUser, isAdmin } from "./auth.js";
 import {
   collection,
   addDoc,
@@ -23,6 +24,59 @@ const DIFFICULTIES = ["yellow", "green", "blue", "purple"];
 const form = document.getElementById("puzzle-form");
 const statusEl = document.getElementById("save-status");
 const listEl = document.getElementById("puzzle-list-items");
+
+const authStatusEl = document.getElementById("auth-status");
+const authEmailEl = document.getElementById("auth-email");
+const signOutBtn = document.getElementById("sign-out-btn");
+const notAdminSignOutBtn = document.getElementById("not-admin-signout-btn");
+
+const signinOverlay = document.getElementById("signin-overlay");
+const signinBtn = document.getElementById("signin-btn");
+const signinError = document.getElementById("signin-error");
+
+const notAdminOverlay = document.getElementById("not-admin-overlay");
+const creatorContent = document.getElementById("creator-content");
+
+// ============================================================
+// Auth / admin gate
+// ============================================================
+
+watchAuthState((user) => {
+  if (!user) {
+    authStatusEl.hidden = true;
+    signinOverlay.hidden = false;
+    notAdminOverlay.hidden = true;
+    creatorContent.hidden = true;
+    return;
+  }
+
+  signinOverlay.hidden = true;
+  authStatusEl.hidden = false;
+  authEmailEl.textContent = user.email;
+
+  if (!isAdmin(user)) {
+    notAdminOverlay.hidden = false;
+    creatorContent.hidden = true;
+    return;
+  }
+
+  notAdminOverlay.hidden = true;
+  creatorContent.hidden = false;
+  loadPuzzleList();
+});
+
+signinBtn.addEventListener("click", async () => {
+  signinError.textContent = "";
+  try {
+    await signIn(true); // creator page: always stay signed in on this device
+  } catch (err) {
+    console.error(err);
+    signinError.textContent = "Sign-in failed: " + err.message;
+  }
+});
+
+signOutBtn.addEventListener("click", () => signOutUser());
+notAdminSignOutBtn.addEventListener("click", () => signOutUser());
 
 // --- Build a puzzle object out of the form's current values ---
 function readPuzzleFromForm() {
@@ -131,5 +185,3 @@ async function loadPuzzleList() {
     listEl.innerHTML = `<li>Couldn't load puzzle list: ${err.message}</li>`;
   }
 }
-
-loadPuzzleList();
