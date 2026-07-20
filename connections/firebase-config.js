@@ -16,12 +16,12 @@ import { getFirestore } from "https://www.gstatic.com/firebasejs/10.13.0/firebas
 import { getAuth, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/10.13.0/firebase-auth.js";
 
 const firebaseConfig = {
-  apiKey: "PASTE_YOUR_API_KEY_HERE",
-  authDomain: "PASTE_YOUR_AUTH_DOMAIN_HERE",
-  projectId: "PASTE_YOUR_PROJECT_ID_HERE",
-  storageBucket: "PASTE_YOUR_STORAGE_BUCKET_HERE",
-  messagingSenderId: "PASTE_YOUR_SENDER_ID_HERE",
-  appId: "PASTE_YOUR_APP_ID_HERE"
+  apiKey: "AIzaSyDvG3hRahhWJnYZLNriVQJ0vRMmJHXAzVI",
+  authDomain: "connections-674d7.firebaseapp.com",
+  projectId: "connections-674d7",
+  storageBucket: "connections-674d7.firebasestorage.app",
+  messagingSenderId: "321589595159",
+  appId: "1:321589595159:web:e5ddc008a917cb6a58e052"
 };
 
 const app = initializeApp(firebaseConfig);

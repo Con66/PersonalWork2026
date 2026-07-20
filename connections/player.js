@@ -139,12 +139,21 @@ usernameForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   usernameError.textContent = "";
 
+  if (!currentUser) {
+    usernameError.textContent = "You're not signed in yet - please refresh the page and sign in again.";
+    return;
+  }
+
   const result = await claimUsername(currentUser.uid, usernameInput.value);
   if (!result.ok) {
-    usernameError.textContent =
-      result.reason === "taken"
-        ? "That username is already taken - try another."
-        : "Usernames must be 2-20 characters.";
+    if (result.reason === "taken") {
+      usernameError.textContent = "That username is already taken - try another.";
+    } else if (result.reason === "rules") {
+      usernameError.textContent =
+        "Couldn't save (permission denied) - double check your Firestore security rules match the README.";
+    } else {
+      usernameError.textContent = "Usernames must be 2-20 characters.";
+    }
     return;
   }
 

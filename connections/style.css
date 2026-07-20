@@ -363,6 +363,13 @@ body {
   padding: 16px;
 }
 
+/* This must come after (and be at least as specific as) the rule above -
+   otherwise "display: flex" wins the tie against the browser's default
+   handling of the hidden attribute, and the overlay never actually hides. */
+.overlay[hidden] {
+  display: none;
+}
+
 .overlay-card {
   background: #fff;
   border-radius: 14px;

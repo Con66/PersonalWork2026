@@ -91,11 +91,19 @@ export async function claimUsername(uid, desiredUsername) {
     await batch.commit();
     return { ok: true };
   } catch (err) {
-    // Most likely explanation: someone else grabbed the same name a
-    // moment earlier, and Firestore's security rules (which only allow
-    // *creating* a username doc, never overwriting one) rejected this
-    // write because the doc now already exists.
-    console.error(err);
+    console.error("claimUsername failed:", err.code, err.message);
+
+    if (err.code === "permission-denied") {
+      // This means Firestore's security rules rejected the write - almost
+      // always because the rules for "usernames" or "users" haven't been
+      // published yet, NOT because the name is actually taken.
+      return { ok: false, reason: "rules" };
+    }
+
+    // Most likely explanation for any other failure here: someone else
+    // grabbed the same name a moment earlier, and the security rules
+    // (which only allow *creating* a username doc, never overwriting
+    // one) rejected this write because the doc now already exists.
     return { ok: false, reason: "taken" };
   }
 }
