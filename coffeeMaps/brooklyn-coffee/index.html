@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Brooklyn Coffee Map</title>
+  </head>
+  <body>
+    <div id="map"></div>
+    <script type="module" src="src/main.js"></script>
+    <div id="modal-overlay" class="hidden">
+      <div id="modal">
+        <button id="modal-close">&times;</button>
+        <h2 id="modal-shop-name"></h2>
+        <p id="modal-shop-address"></p>
+
+        
+        <div id="modal-hours-status">
+          <span id="modal-hours-text"></span>
+        </div>
+        
+        <div class="rating-row">
+          <span class="rating-label">Overall</span>
+          <div id="star-rating" class="star-rating" data-value="0">
+            <span class="star" data-value="1">★</span>
+            <span class="star" data-value="2">★</span>
+            <span class="star" data-value="3">★</span>
+            <span class="star" data-value="4">★</span>
+            <span class="star" data-value="5">★</span>
+          </div>
+        </div>
+
+        <div class="rating-row">
+          <span class="rating-label">Cost</span>
+          <div id="cost-rating" class="cost-rating" data-value="0">
+            <span class="dollar" data-value="1">$</span>
+            <span class="dollar" data-value="2">$</span>
+            <span class="dollar" data-value="3">$</span>
+            <span class="dollar" data-value="4">$</span>
+            <span class="dollar" data-value="5">$</span>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </body>
+</html>
