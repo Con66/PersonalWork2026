@@ -8,6 +8,9 @@ import 'leaflet/dist/leaflet.css';
 import { getShops } from './transformShops.js';
 import opening_hours from 'opening_hours'; // parses OSM-format opening hours strings, tells us open/closed state
 
+
+import { doc, setDoc, getDoc, collection, getDocs } from 'firebase/firestore';
+
 // Leaflet's default marker icons don't resolve correctly under Vite's bundler,
 // so we import the actual image files and manually point Leaflet at them below.
 import markerIcon from 'leaflet/dist/images/marker-icon.png';
@@ -15,11 +18,86 @@ import markerIcon2x from 'leaflet/dist/images/marker-icon-2x.png';
 import markerShadow from 'leaflet/dist/images/marker-shadow.png';
 
 import { db } from './firebase.js';
-import { doc, setDoc, getDoc } from 'firebase/firestore';
+
 
 // Lucide icons imported as raw SVG strings (Vite's `?raw` suffix), injected via innerHTML below
 import wifiIconSvg from 'lucide-static/icons/wifi.svg?raw';
 import armchairIconSvg from 'lucide-static/icons/armchair.svg?raw';
+import coffeeIconSvg from 'lucide-static/icons/coffee.svg?raw';
+
+
+// ============================================================
+// COFFEE CUP MARKERS (colored by rating)
+// ============================================================
+// Maps a shop's overall rating to a marker color: gray for unreviewed,
+// increasingly dark brown for higher ratings, gold border for a perfect 5.
+
+const RATING_COLORS = {
+  0: '#bbbbbb', // unreviewed
+  1: '#f1b77d',
+  2: '#b78955',
+  3: '#7e4f1f',
+  4: 'rgb(53, 30, 9)',
+  5: 'rgb(2, 1, 0)',
+};
+
+function createCoffeeIcon(rating) {
+  const color = RATING_COLORS[rating] ?? RATING_COLORS[0];
+  const borderColor = rating === 5 ? '#ffd700' : 'transparent';
+
+  return L.divIcon({
+    html: `<div class="coffee-marker" style="--icon-color:${color}; border-color:${borderColor};">${coffeeIconSvg}</div>`,
+    className: 'coffee-marker-wrapper', // empty on purpose — strips Leaflet's default icon styling
+    iconSize: [32, 32],
+    iconAnchor: [16, 16], // centers the round badge directly over the coordinate
+  });
+}
+
+// shopId -> Leaflet marker, so we can recolor a specific marker instantly after saving,
+// without needing to reload the whole page or re-fetch all shops again.
+const shopMarkers = new Map();
+
+// Fetches every shop's saved rating in ONE Firestore query, rather than one read per shop
+// (40 separate reads would work but is unnecessarily slow and wasteful at this scale).
+async function loadAllShopRatings() {
+  const ratings = {};
+  try {
+    const snapshot = await getDocs(collection(db, 'shops'));
+    snapshot.forEach((docSnap) => {
+      ratings[docSnap.id] = docSnap.data();
+    });
+  } catch (err) {
+    console.error('Failed to load shop ratings:', err);
+  }
+  return ratings;
+}
+// Pulls the cleaned shop list (name, lat/lng, address, opening hours) from transformShops.js
+const shops = getShops();
+
+// Firestore document IDs can't contain "/", but OSM ids sometimes look like "node/123456789"
+// (when falling back to properties['@id']), so we replace "/" with "_" before using it as a key.
+function sanitizeId(id) {
+  return String(id).replace(/\//g, '_');
+}
+
+// Creates all shop markers, colored according to their saved rating (if any).
+async function initShopMarkers() {
+  const allRatings = await loadAllShopRatings();
+
+  shops.forEach((shop) => {
+    const sanitized = sanitizeId(shop.id);
+    const saved = allRatings[sanitized];
+    const rating = saved?.overallRating || 0;
+
+    const marker = L.marker([shop.lat, shop.lng], { icon: createCoffeeIcon(rating) })
+      .addTo(map)
+      .on('click', () => openModal(shop));
+
+    shopMarkers.set(sanitized, marker);
+  });
+}
+
+initShopMarkers();
 
 // ============================================================
 // FIRESTORE PERSISTENCE
@@ -27,11 +105,7 @@ import armchairIconSvg from 'lucide-static/icons/armchair.svg?raw';
 // Each shop's user-entered data (rating, cost, wifi, seating, drinks, notes) is stored
 // as one document in a "shops" collection, keyed by the shop's id.
 
-// Firestore document IDs can't contain "/", but OSM ids sometimes look like "node/123456789"
-// (when falling back to properties['@id']), so we replace "/" with "_" before using it as a key.
-function sanitizeId(id) {
-  return String(id).replace(/\//g, '_');
-}
+
 
 // Merges the given fields into this shop's document, creating it if it doesn't exist yet.
 // Using { merge: true } is essential here — without it, saving just "drinks" would wipe out
@@ -94,15 +168,9 @@ L.marker([HOME.lat, HOME.lng], { icon: homeIcon })
 // COFFEE SHOP MARKERS
 // ============================================================
 
-// Pulls the cleaned shop list (name, lat/lng, address, opening hours) from transformShops.js
-const shops = getShops();
 
-// Each shop gets a default Leaflet pin; clicking it opens our custom modal (not a Leaflet popup)
-shops.forEach((shop) => {
-  L.marker([shop.lat, shop.lng])
-    .addTo(map)
-    .on('click', () => openModal(shop));
-});
+
+
 
 // ============================================================
 // OPENING HOURS STATUS
@@ -195,12 +263,17 @@ async function openModal(shop) {
 document.getElementById('save-btn').addEventListener('click', () => {
   if (!currentShop) return;
 
+  const newRating = starRating.getValue();
+
   saveShopField(currentShop.id, {
-    overallRating: starRating.getValue(),
+    overallRating: newRating,
     costRating: costRating.getValue(),
     wifi: wifiToggle.getValue(),
     seating: seatingToggle.getValue(),
   });
+
+  const marker = shopMarkers.get(sanitizeId(currentShop.id));
+  if (marker) marker.setIcon(createCoffeeIcon(newRating));
 
   closeModal();
 });
@@ -222,9 +295,13 @@ let currentDrinks = [];
 // rather than trying to patch the DOM incrementally — simpler and fine at this scale.
 function renderDrinkList() {
   drinkList.innerHTML = '';
-  currentDrinks.forEach((entry) => {
+  currentDrinks.forEach((entry, index) => {
     const li = document.createElement('li');
-    li.innerHTML = `<span class="drink-name">${entry.drink}</span><span class="drink-stars">${'★'.repeat(entry.rating)}</span>`;
+    li.innerHTML = `
+      <span class="drink-name">${entry.drink}</span>
+      <span class="drink-stars">${'★'.repeat(entry.rating)}</span>
+      <button class="delete-btn" data-index="${index}" aria-label="Delete drink entry">&times;</button>
+    `;
     drinkList.appendChild(li);
   });
 }
@@ -279,19 +356,44 @@ let currentNotes = [];
 
 function renderNotesList() {
   notesList.innerHTML = '';
-  currentNotes.forEach((note) => {
+  currentNotes.forEach((entry, index) => {
     const div = document.createElement('div');
     div.className = 'note-item';
-    div.textContent = note;
+    div.style.backgroundColor = entry.color;
+    div.style.transform = `rotate(${entry.rotation}deg)`;
+    div.innerHTML = `
+      <button class="delete-btn" data-index="${index}" aria-label="Delete note">&times;</button>
+      <span class="note-text">${entry.text}</span>
+    `;
     notesList.appendChild(div);
   });
 }
+
+drinkList.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('delete-btn')) return;
+  const index = Number(e.target.dataset.index);
+  currentDrinks.splice(index, 1);
+  renderDrinkList();
+  if (currentShop) saveShopField(currentShop.id, { drinks: currentDrinks });
+});
+
+notesList.addEventListener('click', (e) => {
+  if (!e.target.classList.contains('delete-btn')) return;
+  const index = Number(e.target.dataset.index);
+  currentNotes.splice(index, 1);
+  renderNotesList();
+  if (currentShop) saveShopField(currentShop.id, { notes: currentNotes });
+});
 
 function addNote() {
   const note = notesInput.value.trim();
   if (!note) return;
 
-  currentNotes.push(note);
+  const colors = ['#e8e09a', '#b5939f', '#5b99cc', '#ad94db']; // pale yellow, pink, blue, lavender
+  const randomColor = colors[Math.floor(Math.random() * colors.length)];
+  const randomRotation = (Math.random() * 6 - 3).toFixed(1); // range: -3deg to +3deg
+
+  currentNotes.push({ text: note, color: randomColor, rotation: randomRotation });
   renderNotesList();
 
   notesInput.value = '';
@@ -301,7 +403,6 @@ function addNote() {
     saveShopField(currentShop.id, { notes: currentNotes });
   }
 }
-
 notesAddBtn.addEventListener('click', addNote);
 
 function closeModal() {
