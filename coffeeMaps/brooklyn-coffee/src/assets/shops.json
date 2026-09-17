@@ -1,0 +1,3515 @@
+{
+  "type": "FeatureCollection",
+  "generator": "overpass-turbo",
+  "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL.",
+  "timestamp": "2026-09-08T16:21:51Z",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/888984017",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "198",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "cuisine": "donut",
+        "name": "Doughnut Plant",
+        "opening_hours": "Mo,Tu off; We-Su 08:00-16:00",
+        "website": "https://www.doughnutplant.com/location/williamsburg/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9583326,
+          40.7174274
+        ]
+      },
+      "id": "node/888984017"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1422520991",
+        "addr:city": "Brooklyn",
+        "addr:country": "US",
+        "addr:housenumber": "150",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "Wythe Avenue",
+        "amenity": "cafe",
+        "drink:espresso": "yes",
+        "name": "Bakeri",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa-Su 08:00-18:00",
+        "shop": "bakery",
+        "website": "https://www.bakeribrooklyn.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9600762,
+          40.7200059
+        ]
+      },
+      "id": "node/1422520991"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1865211623",
+        "addr:housenumber": "277",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "check_date": "2023-12-05",
+        "cuisine": "coffee_shop",
+        "name": "Uro Cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9488216,
+          40.7224661
+        ]
+      },
+      "id": "node/1865211623"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1979669269",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "300",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "check_date": "2023-04-22",
+        "name": "Black Brick Coffee",
+        "website": "https://blackbrickcoffee.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9616239,
+          40.7141835
+        ]
+      },
+      "id": "node/1979669269"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/1999231230",
+        "addr:housenumber": "379",
+        "addr:postcode": "11211",
+        "addr:street": "Union Avenue",
+        "alt_name": "The West Cafe",
+        "amenity": "cafe",
+        "bar": "yes",
+        "cocktails": "yes",
+        "cuisine": "sandwich",
+        "drink:beer": "draught",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:liquor": "yes",
+        "drink:wine": "yes",
+        "happy_hours": "Mo-Su 13:00-20:00",
+        "indoor_seating": "yes",
+        "name": "The West",
+        "outdoor_seating": "yes",
+        "website": "http://thewestbrooklyn.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9514399,
+          40.7117855
+        ]
+      },
+      "id": "node/1999231230"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2268953602",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "258",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Franklin Street",
+        "amenity": "cafe",
+        "internet_access": "yes",
+        "name": "Eagle Trading Company",
+        "opening_hours": "Mo-Su 09:00-15:00",
+        "phone": "+1-718-576-3217",
+        "website": "http://www.eagletradingco.nyc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9582704,
+          40.734967
+        ]
+      },
+      "id": "node/2268953602"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2268954021",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "70",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Greenpoint Avenue",
+        "amenity": "cafe",
+        "cuisine": "tea",
+        "name": "Kettl",
+        "opening_hours": "Mo-Th 10:00-19:00; Fr 10:00-20:00; Sa 09:00-20:00; Su 09:00-19:00",
+        "phone": "+1-917-909-1309",
+        "shop": "tea",
+        "website": "https://kettl.co/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9581821,
+          40.7296813
+        ]
+      },
+      "id": "node/2268954021"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2274110508",
+        "addr:city": "Brooklyn",
+        "addr:country": "US",
+        "addr:housenumber": "49",
+        "addr:postcode": "11206",
+        "addr:state": "NY",
+        "addr:street": "Bogart Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "Swallow Cafe",
+        "opening_hours": "Mo-Su 07:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9334626,
+          40.7054406
+        ]
+      },
+      "id": "node/2274110508"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2276315902",
+        "amenity": "cafe",
+        "check_date": "2026-09-01",
+        "name": "Little Armenia Cafe",
+        "phone": "+13477011372"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9550701,
+          40.7341833
+        ]
+      },
+      "id": "node/2276315902"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2422377040",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "328",
+        "addr:postcode": "11211",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "internet_access": "no",
+        "name": "Oslo Coffee Roasters",
+        "opening_hours": "Mo-Fr 07:30-16:00, Sa-Su 08:00-16:00",
+        "phone": "+1-718-782-0332",
+        "website": "https://oslocoffee.com/pages/location/bedford-brooklyn-ny"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9622985,
+          40.7131358
+        ]
+      },
+      "id": "node/2422377040"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2439082123",
+        "addr:housenumber": "125",
+        "addr:postcode": "11249",
+        "addr:street": "North 6th Street",
+        "amenity": "cafe",
+        "branch": "Williamsburg",
+        "brand": "Partners Coffee",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "internet_access": "wlan",
+        "name": "Partners Coffee",
+        "opening_hours": "Mo-Su 06:30-18:00",
+        "phone": "+1 347-586-0063",
+        "website": "https://www.partnerscoffee.com/pages/store-locator#map-info-store-locator-1",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9591782,
+          40.7179682
+        ]
+      },
+      "id": "node/2439082123"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2568677473",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "45",
+        "addr:postcode": "11237",
+        "addr:state": "NY",
+        "addr:street": "Irving Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;sandwich",
+        "drink:beer": "yes",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:wine": "yes",
+        "internet_access": "wlan",
+        "name": "Nook",
+        "opening_hours": "Mo 07:30-22:00; Tu 07:30-23:00; We-Th 07:30-22:00; Fr 07:30-24:00; Sa 08:30-24:00; Su 08:30-18:00",
+        "outdoor_seating": "yes",
+        "phone": "+1-718-734-2880",
+        "website": "https://nookbk.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.924656,
+          40.7050225
+        ]
+      },
+      "id": "node/2568677473"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2838525822",
+        "addr:housenumber": "362",
+        "addr:postcode": "11211",
+        "addr:street": "Hewes Street",
+        "amenity": "cafe",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "name": "Nyla",
+        "outdoor_seating": "sidewalk",
+        "phone": "+1-347-859-7102",
+        "website": "https://cafenyla.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9516638,
+          40.7076759
+        ]
+      },
+      "id": "node/2838525822"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2838596351",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "18",
+        "addr:postcode": "11206",
+        "addr:state": "NY",
+        "addr:street": "Grattan Street",
+        "amenity": "cafe",
+        "name": "SEY Coffee",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00",
+        "outdoor_seating": "no",
+        "website": "https://www.seycoffee.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9323788,
+          40.7054219
+        ]
+      },
+      "id": "node/2838596351"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2838706928",
+        "addr:housenumber": "296",
+        "addr:postcode": "11211",
+        "addr:street": "Graham Avenue",
+        "amenity": "cafe",
+        "cannabis:cbd": "only",
+        "cuisine": "snack",
+        "diet:vegan": "yes",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "name": "Muz Muz CBD Lounge",
+        "phone": "+1-917-341-1843",
+        "website": "https://www.yomuzmuz.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9438874,
+          40.7125301
+        ]
+      },
+      "id": "node/2838706928"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2838720789",
+        "addr:housenumber": "502",
+        "addr:postcode": "11211",
+        "addr:street": "Lorimer Street",
+        "alt_name": "Campbell Cheese & Grocery",
+        "amenity": "cafe",
+        "cuisine": "breakfast;sandwich;pastry",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Campbell & Co.",
+        "opening_hours": "Mo-Th 08:00-17:00, Fr-Sa 08:00-18:00, Su 08:00-17:00",
+        "phone": "+1-718-387-2267",
+        "shop": "deli",
+        "website": "https://campbellandco.nyc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9489067,
+          40.712008
+        ]
+      },
+      "id": "node/2838720789"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2838733588",
+        "addr:housenumber": "26",
+        "addr:street": "Bushwick Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "internet_access": "yes",
+        "internet_access:fee": "no",
+        "name": "Here",
+        "outdoor_seating": "sidewalk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9418565,
+          40.7139069
+        ]
+      },
+      "id": "node/2838733588"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2839628051",
+        "addr:housenumber": "168",
+        "addr:postcode": "11211",
+        "addr:street": "North 1st Street",
+        "amenity": "cafe",
+        "drink:espresso": "yes",
+        "opening_hours": "Sa-Su 12:00-18:00",
+        "shop": "video_games;gift",
+        "website": "https://playvitamin.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9605048,
+          40.7146064
+        ]
+      },
+      "id": "node/2839628051"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2839801731",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "867",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "diet:gluten_free": "yes",
+        "diet:vegan": "yes",
+        "name": "Rose Wolf Coffee",
+        "opening_hours": "07:00-17:00",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9400571,
+          40.7147488
+        ]
+      },
+      "id": "node/2839801731"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842175056",
+        "addr:housenumber": "522",
+        "addr:postcode": "11211",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "cuisine": "mediterranean;sandwich",
+        "drink:coffee": "yes",
+        "name": "Mozaik"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9512486,
+          40.7139432
+        ]
+      },
+      "id": "node/2842175056"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842175072",
+        "addr:housenumber": "636",
+        "addr:postcode": "11211",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "cocktails": "yes",
+        "cuisine": "italian",
+        "drink:espresso": "yes",
+        "drink:liquor": "yes",
+        "name": "Pecoraro Latteria",
+        "opening_hours": "Tu-Su 10:30-22:00",
+        "outdoor_seating": "sidewalk",
+        "website": "https://pecoraronyc.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9478315,
+          40.7140816
+        ]
+      },
+      "id": "node/2842175072"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842244629",
+        "addr:city": "Brooklyn",
+        "addr:country": "US",
+        "addr:housenumber": "415",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Graham Avenue",
+        "amenity": "cafe",
+        "email": "Daytimebk@gmail.com",
+        "name": "Daytime",
+        "opening_hours": "Mo-Fr 07:30-17:30; Sa-Su 08:00-17:30",
+        "website": "https://www.daytimebk.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9450305,
+          40.71746
+        ]
+      },
+      "id": "node/2842244629"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842613026",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "698",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;columbian",
+        "name": "Pueblo Querido Coffee Roasters Cafe de Colombia",
+        "outdoor_seating": "no",
+        "phone": "+19296551302"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9515334,
+          40.7253695
+        ]
+      },
+      "id": "node/2842613026"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842613040",
+        "amenity": "cafe",
+        "bar": "yes",
+        "cocktails": "yes",
+        "cuisine": "sandwich;pastry",
+        "drink:beer": "draught",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:liquor": "yes",
+        "drink:tea": "yes",
+        "drink:wine": "yes",
+        "internet_access": "wlan",
+        "name": "Hide & Seek",
+        "outdoor_seating": "sidewalk",
+        "phone": "+1-917-909-0670"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.950475,
+          40.7229766
+        ]
+      },
+      "id": "node/2842613040"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842780183",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "193",
+        "addr:postcode": "11222",
+        "addr:street": "Meserole Avenue",
+        "amenity": "cafe",
+        "branch": "Greenpoint",
+        "brand": "Café Grumpy",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "Café Grumpy",
+        "opening_hours": "Mo-Fr 07:00-19:30, Sa-Su 07:30-19:30",
+        "phone": "+1 718-349-7623",
+        "website": "https://cafegrumpy.com/locations/greenpoint/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9486571,
+          40.7285374
+        ]
+      },
+      "id": "node/2842780183"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842929201",
+        "addr:city": "Brooklyn",
+        "addr:country": "US",
+        "addr:housenumber": "94",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Franklin Street",
+        "amenity": "cafe",
+        "name": "Cookie Road",
+        "shop": "confectionery",
+        "website": "http://www.cookieroad.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9571169,
+          40.7278772
+        ]
+      },
+      "id": "node/2842929201"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842929227",
+        "addr:housenumber": "128",
+        "addr:postcode": "11222",
+        "addr:street": "Franklin Street",
+        "amenity": "cafe",
+        "cuisine": "breakfast;sandwich;seafood",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Littleneck Outpost",
+        "outdoor_seating": "sidewalk"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95735,
+          40.7292924
+        ]
+      },
+      "id": "node/2842929227"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842929254",
+        "addr:housenumber": "47",
+        "addr:postcode": "11222",
+        "addr:street": "Franklin Street",
+        "amenity": "cafe",
+        "name": "Chez Ma Tante",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9573871,
+          40.7269042
+        ]
+      },
+      "id": "node/2842929254"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842985885",
+        "addr:housenumber": "141",
+        "addr:postcode": "11222",
+        "addr:street": "India Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "BLND Coffee Studio"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9543033,
+          40.7324479
+        ]
+      },
+      "id": "node/2842985885"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/2842989041",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "name": "Odd Fox",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 07:00-16:00",
+        "outdoor_seating": "garden",
+        "website": "https://oddfoxcoffee.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9545157,
+          40.7327188
+        ]
+      },
+      "id": "node/2842989041"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3061926346",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "222",
+        "addr:postcode": "11206",
+        "addr:street": "Montrose Avenue",
+        "amenity": "cafe",
+        "branch": "East Williamsburg",
+        "contact:facebook": "https://www.facebook.com/dunwelldoughnuts/",
+        "contact:instagram": "@dunwelldoughnuts",
+        "contact:twitter": "@dunwelldoughnut",
+        "cuisine": "donut",
+        "diet:vegan": "yes",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Dun-Well Doughnuts",
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "phone": "+1-347-294-0871",
+        "website": "https://www.dunwelldoughnuts.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9402479,
+          40.7074571
+        ]
+      },
+      "id": "node/3061926346"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3153302100",
+        "addr:housenumber": "799",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "name": "Flower Power Cafe",
+        "opening_hours": "Mo-Su 08:00-20:00",
+        "phone": "+1-347-799-1611"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9412907,
+          40.7120232
+        ]
+      },
+      "id": "node/3153302100"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3154274268",
+        "amenity": "cafe",
+        "name": "Jessie's Bakery"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9397458,
+          40.7081622
+        ]
+      },
+      "id": "node/3154274268"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3154646654",
+        "addr:housenumber": "861",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "name": "Dumpling Cafe",
+        "phone": "+1-718-302-8886"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.939496,
+          40.7123642
+        ]
+      },
+      "id": "node/3154646654"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3575165389",
+        "addr:housenumber": "25",
+        "addr:street": "Broadway",
+        "amenity": "cafe",
+        "internet_access": "yes",
+        "name": "Blank cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9678242,
+          40.7109207
+        ]
+      },
+      "id": "node/3575165389"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3743024926",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "667",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "internet_access": "yes",
+        "name": "Meyers Bageri",
+        "website": "https://www.margopatisserie.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95913,
+          40.7143881
+        ]
+      },
+      "id": "node/3743024926"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3805991007",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "566",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Lorimer Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "no",
+        "level": "Ground_Floor",
+        "name": "Bagelsmith",
+        "opening_hours": "08:00-24:00",
+        "outdoor_seating": "yes",
+        "phone": "+1-347-294-0046",
+        "smoking": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9492036,
+          40.7139547
+        ]
+      },
+      "id": "node/3805991007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3805991016",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "289",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "pastry",
+        "internet_access": "no",
+        "name": "Fortunato Brothers",
+        "note": "Minimum $10 for credit card use",
+        "opening_hours": "08:00-23:00",
+        "phone": "+1-718-387-2281",
+        "website": "https://www.fortunatobrothers.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9461019,
+          40.7137679
+        ]
+      },
+      "id": "node/3805991016"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3822484908",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "101",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "brand": "The Bean",
+        "brand:wikidata": "Q122209700",
+        "contact:phone": "+17183871871",
+        "contact:website": "http://thebeannyc.com/",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "The Bean",
+        "name:en": "The Bean",
+        "opening_hours": "Mo-Su 07:00-22:00",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9551628,
+          40.7200547
+        ]
+      },
+      "id": "node/3822484908"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/3971304159",
+        "addr:postcode": "11211",
+        "amenity": "cafe",
+        "disused:shop": "yes",
+        "name": "Black Star Bakery & Cafe",
+        "website": "https://www.blackstarbakery.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9564033,
+          40.7172343
+        ]
+      },
+      "id": "node/3971304159"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4312750372",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "45",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "South 3rd Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "Freehold"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9657829,
+          40.7136847
+        ]
+      },
+      "id": "node/4312750372"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4316449792",
+        "addr:housenumber": "242",
+        "addr:street": "Wythe Avenue",
+        "amenity": "cafe",
+        "cuisine": "deli;sandwich",
+        "name": "Depanneur",
+        "opening_hours": "Mo-Su 07:30-21:00",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962872,
+          40.7174195
+        ]
+      },
+      "id": "node/4316449792"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4316480189",
+        "addr:housenumber": "85",
+        "addr:street": "North 3rd Street",
+        "amenity": "cafe",
+        "diet:vegan": "yes",
+        "diet:vegetarian": "only",
+        "name": "Shanti Shack",
+        "opening_hours": "Tu-Su 09:30-16:00",
+        "website": "https://www.shantishack.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.962413,
+          40.7171428
+        ]
+      },
+      "id": "node/4316480189"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4325385750",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "396",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Wythe Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "description": "coffee hangout, clothing retailer and motorcycle workshop",
+        "motorcycle:clothes": "yes",
+        "motorcycle:theme": "yes",
+        "name": "Jane Motorcycles",
+        "note": "https://hypebeast.com/2016/10/jane-motorcycles-brooklyn-interview",
+        "website": "https://janemotorcycles.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9660797,
+          40.7125186
+        ]
+      },
+      "id": "node/4325385750"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4334482651",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "148",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Devoción",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa, Su 07:30-18:00",
+        "phone": "+19292621241",
+        "website": "https://www.devocion.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9622348,
+          40.7147568
+        ]
+      },
+      "id": "node/4334482651"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4491325489",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "189",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "cuisine": "bagel",
+        "name": "Bagelsmith",
+        "opening_hours": "Mo-Th 07:00-20:00; Fr,Sa 07:00-22:00; Su 07:00-20:00",
+        "outdoor_seating": "no",
+        "phone": "+1 718-218-7414",
+        "smoking": "no",
+        "website": "https://www.bagelsmithny.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9578621,
+          40.7175502
+        ]
+      },
+      "id": "node/4491325489"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4786076422",
+        "amenity": "cafe",
+        "name": "Parlor Coffee",
+        "name:en": "Parlor Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9562351,
+          40.7138876
+        ]
+      },
+      "id": "node/4786076422"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4811875621",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "232",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "sweatshop",
+        "opening_hours": "Mo-Su 07:00-18:00",
+        "website": "https://sweatshop.coffee/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9597145,
+          40.714903
+        ]
+      },
+      "id": "node/4811875621"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/4825800433",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "231",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "check_date": "2022-05-30",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "name": "Hungry Ghost",
+        "opening_hours": "Mo-Th 07:00-18:00; Fr-Su 07:00-20:00",
+        "outdoor_seating": "no",
+        "website": "https://www.hungryghostcoffee.com/location/williamsburg/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.959494,
+          40.7160182
+        ]
+      },
+      "id": "node/4825800433"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5052125055",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "195",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Greenpoint Avenue",
+        "alt_name": "Cafe de Colombia",
+        "amenity": "cafe",
+        "cuisine": "colombian;coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Pueblo Querido",
+        "opening_hours": "Mo-Fr 06:30-15:00; Sa 07:30-15:00; Su 08:00-15:00",
+        "outdoor_seating": "yes",
+        "phone": "+1-929-346-2986",
+        "website": "https://www.pqcoffeeroasters.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9517696,
+          40.7305282
+        ]
+      },
+      "id": "node/5052125055"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5082105221",
+        "addr:housenumber": "30-18",
+        "addr:postcode": "11101",
+        "addr:street": "Hunters Point Avenue",
+        "amenity": "cafe",
+        "check_date": "2024-09-07",
+        "name": "Griddle Cafe & Deli",
+        "opening_hours": "Mo-Fr 05:00-15:00",
+        "phone": "+17189377947",
+        "website": "https://www.griddlelic.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.937536,
+          40.7403729
+        ]
+      },
+      "id": "node/5082105221"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5087340921",
+        "addr:housenumber": "664",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "name": "Bot Bar",
+        "old_name": "Cherry Point"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9511656,
+          40.7246703
+        ]
+      },
+      "id": "node/5087340921"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5238704577",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "967",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "breakfast;pastry",
+        "name": "Early"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9547389,
+          40.7321529
+        ]
+      },
+      "id": "node/5238704577"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5477794022",
+        "addr:housenumber": "544",
+        "addr:postcode": "11211",
+        "addr:street": "Union Avenue",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "Reunion",
+        "opening_hours": "Mo-Fr 09:00-18:00; Sa off; Su 07:00-16:00",
+        "phone": "+1-718-599-3670",
+        "website": "https://www.reunionnyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.951889,
+          40.7167956
+        ]
+      },
+      "id": "node/5477794022"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5502443030",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "133",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "North 7th Street",
+        "amenity": "cafe",
+        "branch": "Williamsburg",
+        "cuisine": "bagel;sandwich",
+        "email": "hello@apollobagels.com",
+        "name": "Apollo Bagels",
+        "opening_hours": "Mo-Th 07:00-15:00, Fr-Su 07:00-17:00",
+        "website": "https://www.apollobagels.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9585343,
+          40.718457
+        ]
+      },
+      "id": "node/5502443030"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5613044405",
+        "addr:housenumber": "308",
+        "addr:postcode": "11211",
+        "addr:street": "Hooper Street",
+        "amenity": "cafe",
+        "bar": "yes",
+        "cocktails": "yes",
+        "drink:beer": "draught",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:kombucha": "draught",
+        "drink:liquor": "yes",
+        "drink:wine": "yes",
+        "internet_access": "wlan",
+        "name": "The Fiction",
+        "toilets": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9537223,
+          40.7073204
+        ]
+      },
+      "id": "node/5613044405"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5614134321",
+        "amenity": "cafe",
+        "name": "Sweetleaf Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9553797,
+          40.7345353
+        ]
+      },
+      "id": "node/5614134321"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5625462945",
+        "addr:housenumber": "420",
+        "addr:street": "Troutman Street",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "AP Cafe",
+        "opening_hours": "Mo-Fr 08:00-18:00; Sa, Su 08:30-19:00",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "phone": "+1-347-404-6147",
+        "takeaway": "yes",
+        "website": "https://apcafenyc.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9223165,
+          40.7068582
+        ]
+      },
+      "id": "node/5625462945"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5634165227",
+        "addr:housenumber": "18-66",
+        "addr:street": "Flushing Avenue",
+        "amenity": "cafe",
+        "name": "In Between Cafe",
+        "opening_hours": "Mo 08:00-17:00; Tu-Sa 07:00-19:00",
+        "phone": "+1-718-768-7656"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.919257,
+          40.7118521
+        ]
+      },
+      "id": "node/5634165227"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5716101714",
+        "addr:housenumber": "279",
+        "addr:postcode": "11206",
+        "addr:street": "McKibben Street",
+        "amenity": "cafe",
+        "branch": "Bushwick",
+        "brand": "Blue Bottle Coffee",
+        "brand:en": "Blue Bottle Coffee",
+        "brand:ja": "ブルーボトルコーヒー",
+        "brand:wikidata": "Q4928917",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:tea": "yes",
+        "fireplace": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Blue Bottle Coffee",
+        "name:en": "Blue Bottle Coffee",
+        "name:ja": "ブルーボトルコーヒー",
+        "opening_hours": "Mo-Fr 08:00-17:00; Sa, Su 09:00-17:00; Jan 1 off; Dec 25 off",
+        "payment:contactless": "yes",
+        "phone": "+1-510-653-3394",
+        "takeaway": "yes",
+        "website": "https://bluebottlecoffee.com/cafes/bushwick",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9365884,
+          40.70593
+        ]
+      },
+      "id": "node/5716101714"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5725985607",
+        "addr:housenumber": "76",
+        "addr:postcode": "11249",
+        "addr:street": "North 4th Street",
+        "addr:unit": "A",
+        "amenity": "cafe",
+        "branch": "Williamsburg",
+        "brand": "Blue Bottle Coffee",
+        "brand:en": "Blue Bottle Coffee",
+        "brand:ja": "ブルーボトルコーヒー",
+        "brand:wikidata": "Q4928917",
+        "cuisine": "coffee_shop",
+        "name": "Blue Bottle Coffee",
+        "name:en": "Blue Bottle Coffee",
+        "name:ja": "ブルーボトルコーヒー",
+        "opening_hours": "Mo-Fr 06:30-19:00; Sa, Su 07:00-19:30; Jan 01 off; Nov Th[4] off; Dec 25 off",
+        "takeaway": "yes",
+        "website": "https://bluebottlecoffee.com/cafes/williamsburg",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9610201,
+          40.7169605
+        ]
+      },
+      "id": "node/5725985607"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5735248331",
+        "addr:housenumber": "119",
+        "addr:street": "Knickerbocker Avenue",
+        "amenity": "cafe",
+        "contact:instagram": "xroads.cafe",
+        "cuisine": "sandwich;pastry",
+        "drink:coffee": "yes",
+        "drink:tea": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Crossroads Cafe",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1-347-422-0969",
+        "toilets": "yes",
+        "toilets:access": "customers",
+        "toilets:unisex": "yes",
+        "website": "https://www.xroads.cafe/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.928984,
+          40.7050509
+        ]
+      },
+      "id": "node/5735248331"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5751854223",
+        "addr:housenumber": "247",
+        "addr:street": "Varet Street",
+        "amenity": "cafe",
+        "cuisine": "bagel;sandwich",
+        "diet:vegetarian": "yes",
+        "drink:beer": "yes",
+        "drink:coffee": "yes",
+        "drink:liquor": "yes",
+        "drink:tea": "yes",
+        "drink:wine": "yes",
+        "happy_hours": "yes",
+        "internet_access": "wlan",
+        "name": "Ange Noir Cafe",
+        "opening_hours": "Mo, Tu, Th 07:30-19:00; We, Fr-Su 07:30-20:00",
+        "organic": "yes",
+        "outdoor_seating": "yes",
+        "payment:cash": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "phone": "+1-718-366-1520",
+        "sport": "billiards",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "website": "https://angenoircafe.com/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9341582,
+          40.7041849
+        ]
+      },
+      "id": "node/5751854223"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5759472203",
+        "amenity": "cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9204123,
+          40.7139319
+        ]
+      },
+      "id": "node/5759472203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5801942482",
+        "addr:housenumber": "995",
+        "addr:street": "Flushing Avenue",
+        "amenity": "cafe",
+        "diet:vegetarian": "yes",
+        "drink:coffee": "yes",
+        "drink:tea": "yes",
+        "internet_access": "wlan",
+        "name": "Bake Shop",
+        "opening_hours": "Mo-Fr 07:30-22:00; Sa, Su 08:00-22:00",
+        "phone": "+1-718-381-3706",
+        "takeaway": "yes",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9328762,
+          40.7032509
+        ]
+      },
+      "id": "node/5801942482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5823823343",
+        "addr:housenumber": "84",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "name": "19 Cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9444215,
+          40.7052284
+        ]
+      },
+      "id": "node/5823823343"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5963034386",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "88",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Roebling Street",
+        "amenity": "cafe",
+        "contact:instagram": "7grainarmy",
+        "diet:dairy_free": "only",
+        "diet:gluten_free": "only",
+        "diet:vegan": "yes",
+        "indoor_seating": "no",
+        "name": "7 Grain Army",
+        "opening_hours": "Th-Fr 08:00-15:00;Sa-Su 09:00-15:00",
+        "outdoor_seating": "sidewalk",
+        "takeaway": "yes",
+        "website": "https://www.7grainarmy.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9554176,
+          40.7162589
+        ]
+      },
+      "id": "node/5963034386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5978556769",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Cotter Barber"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9501246,
+          40.7223584
+        ]
+      },
+      "id": "node/5978556769"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5978556770",
+        "amenity": "cafe",
+        "name": "Charlotte Patisserie",
+        "opening_hours": "Mo-Sa 08:00-18:00, Su 09:00-18:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9502459,
+          40.7230585
+        ]
+      },
+      "id": "node/5978556770"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/5978837386",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "66",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Nassau Avenue",
+        "amenity": "cafe",
+        "branch": "Nassau Avenue & Lorimer St",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "opening_hours": "Mo-Su 06:00-20:00",
+        "phone": "+1 718-383-3750",
+        "takeaway": "yes",
+        "website": "https://www.starbucks.com/store-locator/store/1021871/nassau-ave-lorimer-st-66-nassau-ave-brooklyn-ny-112223105-us"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9514323,
+          40.7234561
+        ]
+      },
+      "id": "node/5978837386"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6004765085",
+        "addr:housenumber": "297",
+        "addr:street": "Meserole Street",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "City of Saints Coffee Roasters",
+        "website": "https://www.cityofsaintscoffee.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9360587,
+          40.7088941
+        ]
+      },
+      "id": "node/6004765085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6006289990",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;breakfast;sandwich;pastry",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "name": "Bakeri",
+        "opening_hours": "Mo-Fr 07:00-18:00; Sa-Su 08:00-18:00",
+        "outdoor_seating": "yes",
+        "phone": "+1-718-349-1542",
+        "shop": "bakery",
+        "website": "https://www.bakeribrooklyn.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9575298,
+          40.7343048
+        ]
+      },
+      "id": "node/6006289990"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6037257725",
+        "addr:housenumber": "166",
+        "addr:postcode": "11249",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "level": "0",
+        "name": "Vittoria",
+        "phone": "+1-718-388-3118",
+        "takeaway": "yes",
+        "toilets": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9573744,
+          40.7183032
+        ]
+      },
+      "id": "node/6037257725"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6248588890",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "133",
+        "addr:postcode": "11211",
+        "addr:street": "Roebling Street",
+        "amenity": "cafe",
+        "name": "Oslo Coffee",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9566512,
+          40.7146755
+        ]
+      },
+      "id": "node/6248588890"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6682052647",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "419",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "name": "Avenue Cafe",
+        "phone": "+1-718-384-6956"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9639893,
+          40.7090225
+        ]
+      },
+      "id": "node/6682052647"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6761763979",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "101",
+        "addr:state": "NY",
+        "addr:street": "North 10th Street",
+        "amenity": "cafe",
+        "internet_access": "yes",
+        "name": "Marcy and Myrtle",
+        "outdoor_seating": "no",
+        "website": "https://www.marcyandmyrtle.com/marcyandmyrtlewilliamsburg"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9577014,
+          40.7207076
+        ]
+      },
+      "id": "node/6761763979"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6796160726",
+        "addr:housenumber": "142",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "check_date": "2025-08-17",
+        "cuisine": "coffee_shop",
+        "name": "Variety Coffee",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "phone": "+1 718-497-2326",
+        "website": "https://varietycoffeeroasters.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94425,
+          40.723174
+        ]
+      },
+      "id": "node/6796160726"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6800246087",
+        "amenity": "cafe",
+        "name": "Café Alula",
+        "outdoor_seating": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9582212,
+          40.7345902
+        ]
+      },
+      "id": "node/6800246087"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6800262485",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "80",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Kent Street",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Maman",
+        "outdoor_seating": "no",
+        "phone": "+1-347-689-9195",
+        "website": "https://www.mamannyc.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9581342,
+          40.7304598
+        ]
+      },
+      "id": "node/6800262485"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/6952884368",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "774",
+        "addr:postcode": "11206",
+        "addr:state": "NY",
+        "addr:street": "Broadway",
+        "amenity": "cafe",
+        "branch": "774 Broadway",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "cuisine": "coffee_shop",
+        "indoor_seating": "yes",
+        "internet_access": "yes",
+        "name": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "outdoor_seating": "no",
+        "phone": "+1 917-246-0280",
+        "ref": "1021445",
+        "takeaway": "yes",
+        "website": "https://www.starbucks.com/store-locator/store/1021445/774-broadway-774-broadway-brooklyn-ny-112065316-us"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9411085,
+          40.7000569
+        ]
+      },
+      "id": "node/6952884368"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7040457482",
+        "addr:housenumber": "583",
+        "addr:postcode": "11211",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "name": "Gusto Latino Cafe Rest"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9571819,
+          40.7161905
+        ]
+      },
+      "id": "node/7040457482"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7223921085",
+        "amenity": "cafe",
+        "name": "Republic of Booza"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.961193,
+          40.7170895
+        ]
+      },
+      "id": "node/7223921085"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/7424179942",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "182",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Crema Brooklyn",
+        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-17:00",
+        "outdoor_seating": "no",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9456976,
+          40.7230127
+        ]
+      },
+      "id": "node/7424179942"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8109403685",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "561",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Lorimer Street",
+        "amenity": "cafe",
+        "cuisine": "coffee;pastry",
+        "name": "Poetica Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9494826,
+          40.7137246
+        ]
+      },
+      "id": "node/8109403685"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8111388488",
+        "addr:housenumber": "543",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "check_date": "2024-06-23",
+        "cuisine": "coffee_shop",
+        "name": "Brooklyn Roasting Company",
+        "outdoor_seating": "no",
+        "shop": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9508267,
+          40.7141926
+        ]
+      },
+      "id": "node/8111388488"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/8990769665",
+        "addr:city": "Long Island City",
+        "addr:housenumber": "21-02",
+        "addr:postcode": "11101",
+        "addr:state": "NY",
+        "addr:street": "49th Avenue",
+        "amenity": "cafe",
+        "branch": "21st St & 49th Avenue - LIC",
+        "brand": "Starbucks",
+        "brand:wikidata": "Q37158",
+        "cuisine": "coffee_shop",
+        "name": "Starbucks",
+        "official_name": "Starbucks Coffee",
+        "phone": "+1 718-786-8881",
+        "ref": "1026065",
+        "takeaway": "yes",
+        "website": "https://www.starbucks.com/store-locator/store/1026065/21st-st-49th-ave-lic-21-02-49th-ave-long-island-city-ny-111014521-us"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9490982,
+          40.7423244
+        ]
+      },
+      "id": "node/8990769665"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9051241922",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "743",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Driggs Avenue",
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;bakery",
+        "name": "Ceremonia Bakeshop",
+        "outdoor_seating": "yes",
+        "phone": "+1-347-384-2212",
+        "website": "https://www.ceremoniabakeshop.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9605821,
+          40.7124741
+        ]
+      },
+      "id": "node/9051241922"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9051252639",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "95",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "South 5th Street",
+        "amenity": "cafe",
+        "name": "Butler",
+        "outdoor_seating": "yes",
+        "website": "https://www.butler-nyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9647216,
+          40.7118326
+        ]
+      },
+      "id": "node/9051252639"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9121440014",
+        "amenity": "cafe",
+        "internet_access": "wlan",
+        "name": "Eleva"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9585835,
+          40.7363882
+        ]
+      },
+      "id": "node/9121440014"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9272996385",
+        "addr:housenumber": "200",
+        "addr:postcode": "11222",
+        "addr:street": "Franklin Street",
+        "amenity": "cafe",
+        "cuisine": "breakfast;sandwich;coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Sippy Cafe",
+        "opening_hours": "Mo-Fr 08:00-16:00; Sa-Su 08:00-17:00",
+        "phone": "+1-917-909-0662"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.95783,
+          40.7323041
+        ]
+      },
+      "id": "node/9272996385"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9273167176",
+        "addr:housenumber": "262",
+        "addr:postcode": "11249",
+        "addr:street": "Kent Avenue",
+        "amenity": "cafe",
+        "cocktails": "yes",
+        "cuisine": "american;brunch",
+        "drink:beer": "yes",
+        "drink:wine": "yes",
+        "name": "Two Hands",
+        "opening_hours": "Mo-Fr 09:00-16:00; Sa-Su 09:00-17:00",
+        "outdoor_seating": "sidewalk",
+        "phone": "+1-917-257-3221",
+        "website": "https://www.twohandsnyc.com/location/williamsburg/",
+        "wheelchair": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9663432,
+          40.7161023
+        ]
+      },
+      "id": "node/9273167176"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9501235662",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "1107",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "internet_access:fee": "customers",
+        "name": "For the Record",
+        "opening_hours": "Mo-Fr 07:00-18:30; Sa 08:00-20:00; Su 08:00-18:00",
+        "outdoor_seating": "no",
+        "shop": "music",
+        "website": "https://fortherecordnyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9554676,
+          40.7363076
+        ]
+      },
+      "id": "node/9501235662"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9501459860",
+        "amenity": "cafe",
+        "name": "Coffee Project New York"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9489553,
+          40.7408478
+        ]
+      },
+      "id": "node/9501459860"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9543939118",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "349",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Union Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "drink:tea": "yes",
+        "name": "Paloma Coffee & Bakery",
+        "outdoor_seating": "only",
+        "website": "https://palomacoffeebakery.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9512259,
+          40.7107068
+        ]
+      },
+      "id": "node/9543939118"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9543940517",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:espresso": "yes",
+        "name": "Hungry Ghost Coffee",
+        "opening_hours": "Mo-Fr 07:00-17:00; Sa-Su 08:00-17:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9450381,
+          40.7145938
+        ]
+      },
+      "id": "node/9543940517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9543941517",
+        "amenity": "cafe",
+        "name": "Alex Coffee Roasters Brooklyn"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.96067,
+          40.7194959
+        ]
+      },
+      "id": "node/9543941517"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/9624789645",
+        "alt_name": "Santa Fe, Brooklyn",
+        "amenity": "cafe",
+        "cuisine": "new_mexican;breakfast",
+        "drink:coffee": "yes",
+        "name": "SF BK"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9566853,
+          40.7179646
+        ]
+      },
+      "id": "node/9624789645"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10078555417",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "103",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "North 7th Street",
+        "amenity": "cafe",
+        "check_date:opening_hours": "2026-07-25",
+        "contact:instagram": "angelscafebk",
+        "cuisine": "bagel",
+        "name": "Angels Cafe",
+        "opening_hours": "Mo-Th 07:00-15:00; Fr-Su 07:00-17:00",
+        "payment:american_express": "yes",
+        "payment:contactless": "yes",
+        "payment:discover_card": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9597158,
+          40.7192029
+        ]
+      },
+      "id": "node/10078555417"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10170251962",
+        "amenity": "cafe",
+        "name": "Pueblo Querido"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9587661,
+          40.7371151
+        ]
+      },
+      "id": "node/10170251962"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10557706111",
+        "amenity": "cafe",
+        "check_date": "2023-01-15",
+        "contact:instagram": "rhythmzeronyc",
+        "name": "Rhythm Zero",
+        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+        "phone": "+1-347-907-5483"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9598036,
+          40.7302525
+        ]
+      },
+      "id": "node/10557706111"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10613041697",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "221",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "North 9th Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop;chinese;japanese;french",
+        "name": "pinkFROG Cafe",
+        "opening_hours": "Su-Th 11:00-21:00, Fr-Sa 11:00-22:00",
+        "outdoor_seating": "no",
+        "phone": "+1-929-265-3350",
+        "website": "https://pinkfrogcafe.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9543949,
+          40.717779
+        ]
+      },
+      "id": "node/10613041697"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10822789007",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "402",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Graham Avenue",
+        "amenity": "cafe",
+        "coffee": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "last_checked": "2026-01-13",
+        "name": "Land to Sea",
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "takeaway": "yes",
+        "toilets": "yes",
+        "toilets:unisex": "yes",
+        "toilets:wheelchair": "no",
+        "website": "https://www.landtoseanyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.944581,
+          40.7168388
+        ]
+      },
+      "id": "node/10822789007"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10835856480",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "142",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "North 6th Street",
+        "amenity": "cafe",
+        "cuisine": "bubble_tea",
+        "name": "I'Milky",
+        "opening_hours": "Mo-Th 11:30-21:00; Fr-Su 11:30-21:30",
+        "outdoor_seating": "no",
+        "phone": "+1-585-421-7795",
+        "website": "https://www.imilkyusa.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9590156,
+          40.7175808
+        ]
+      },
+      "id": "node/10835856480"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10836191952",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "219",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Bedford Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Lattente",
+        "opening_hours": "Mo-Fr 07:00-19:00; Sa-Su 08:00-19:00",
+        "website": "https://www.lattentenyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9590218,
+          40.7164698
+        ]
+      },
+      "id": "node/10836191952"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10838005576",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "255",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "Berry Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Caffè Valencia",
+        "opening_hours": "Mo 08:00-18:00; Tu 08:00-13:00; Th-Fr 08:00-18:00; Sa-Su 10:00-18:00",
+        "phone": "+1-718-869-4459",
+        "website": "https://caffevalencia.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9627684,
+          40.714913
+        ]
+      },
+      "id": "node/10838005576"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10865913691",
+        "addr:housenumber": "766",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "atm": "yes",
+        "cuisine": "breakfast;sandwich;american",
+        "internet_access": "yes",
+        "internet_access:fee": "no",
+        "name": "Brooklyn Standard",
+        "outdoor_seating": "backyard",
+        "toilets": "yes",
+        "toilets:unisex": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9425422,
+          40.7116246
+        ]
+      },
+      "id": "node/10865913691"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/10916272079",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "269",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Nassau Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "The Coffee Shop"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9409223,
+          40.726051
+        ]
+      },
+      "id": "node/10916272079"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11164227707",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "131",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "North 4th Street",
+        "amenity": "cafe",
+        "email": "coppermugcoffee@gmail.com",
+        "name": "Copper Mug Coffee",
+        "opening_hours": "Mo-Fr 07:30-18:30; Sa-Su 09:00-18:30",
+        "phone": "+1-631-536-5209",
+        "website": "https://www.coppermugcoffee.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9598142,
+          40.7164928
+        ]
+      },
+      "id": "node/11164227707"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11721695351",
+        "addr:city": "Brooklyn",
+        "addr:country": "US",
+        "addr:housenumber": "368",
+        "addr:postcode": "11211",
+        "addr:state": "NY",
+        "addr:street": "Graham Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "internet_access:fee": "no",
+        "name": "Variety Cafe",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "outdoor_seating": "yes",
+        "website": "http://www.varietynyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9443717,
+          40.7154052
+        ]
+      },
+      "id": "node/11721695351"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11747267935",
+        "addr:housenumber": "860",
+        "addr:postcode": "11222",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Amelie Cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.953737,
+          40.7292851
+        ]
+      },
+      "id": "node/11747267935"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11854382369",
+        "amenity": "cafe",
+        "name": "Olas Coffee Roasters and Cafe"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9491299,
+          40.7117857
+        ]
+      },
+      "id": "node/11854382369"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11956309391",
+        "addr:city": "New York",
+        "addr:housenumber": "261",
+        "addr:postcode": "11211",
+        "addr:street": "Metropolitan Avenue",
+        "amenity": "cafe",
+        "name": "Butcher‘s Daughter"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9585346,
+          40.7148966
+        ]
+      },
+      "id": "node/11956309391"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11968859203",
+        "addr:housenumber": "67",
+        "addr:street": "Driggs Avenue",
+        "amenity": "cafe",
+        "check_date": "2025-08-14",
+        "cuisine": "coffee_shop",
+        "level": "0",
+        "name": "Pairing",
+        "outdoor_seating": "no"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9415595,
+          40.7232303
+        ]
+      },
+      "id": "node/11968859203"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/11975933909",
+        "amenity": "cafe",
+        "check_date": "2024-06-12",
+        "cuisine": "coffee_shop",
+        "name": "Greta"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9447184,
+          40.7254716
+        ]
+      },
+      "id": "node/11975933909"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12067967003",
+        "amenity": "cafe",
+        "delivery": "yes",
+        "name": "Bella Blue",
+        "outdoor_seating": "yes",
+        "phone": "+1 718-392-1927",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9326532,
+          40.7410235
+        ]
+      },
+      "id": "node/12067967003"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12179336448",
+        "amenity": "cafe",
+        "name": "Dunkin",
+        "opening_hours": "Mo-Su 05:00-19:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9321955,
+          40.7367571
+        ]
+      },
+      "id": "node/12179336448"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12253456376",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "164",
+        "addr:postcode": "11206",
+        "addr:state": "NY",
+        "addr:street": "Graham Avenue",
+        "amenity": "cafe",
+        "check_date": "2024-10-25",
+        "cuisine": "coffee_shop;asian;taiwanese;pastry",
+        "email": "bakery@winsonbrooklyn.com",
+        "indoor_seating": "yes",
+        "name": "Win Son Bakery",
+        "opening_hours": "Th-Sa 09:00-22:00; Su 09:00-21:00; Tu-We 09:00-21:00",
+        "outdoor_seating": "yes",
+        "phone": "+1-917-909-1725",
+        "website": "https://www.winsonbrooklyn.com",
+        "website:menu": "https://winsonbrooklyn.com/bakery/menu"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9430166,
+          40.7072233
+        ]
+      },
+      "id": "node/12253456376"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12549245008",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "142",
+        "addr:postcode": "11206",
+        "addr:state": "NY",
+        "addr:street": "Waterbury Street",
+        "amenity": "cafe",
+        "check_date": "2026-06-16",
+        "check_date:opening_hours": "2026-06-16",
+        "cuisine": "coffee_shop",
+        "internet_access": "wlan",
+        "name": "Three Legged Cat",
+        "opening_hours": "Mo-Su 08:00-18:00",
+        "outdoor_seating": "no",
+        "website": "https://www.threeleggedcatbk.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9380103,
+          40.7122831
+        ]
+      },
+      "id": "node/12549245008"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12662714201",
+        "addr:housenumber": "73",
+        "addr:postcode": "11211",
+        "addr:street": "Lee Avenue",
+        "amenity": "cafe",
+        "contact:facebook": "williamsburg.bagel",
+        "contact:instagram": "williamsburg_bagel",
+        "cuisine": "bagel",
+        "name": "Williamsburg Bagel",
+        "opening_hours": "Su-Th 07:00-00:00; Fr 07:00-15:00",
+        "phone": "+1-718-387-4736",
+        "website": "https://willibagel.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9609982,
+          40.7073383
+        ]
+      },
+      "id": "node/12662714201"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12796014160",
+        "addr:housenumber": "189",
+        "addr:street": "Roebling Street",
+        "amenity": "cafe",
+        "check_date": "2025-04-28",
+        "name": "PPL",
+        "opening_hours": "Mo-Fr 08:00-16:00; Sa-Su 09:00-16:00",
+        "website": "https://pplnyc.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9584364,
+          40.7128252
+        ]
+      },
+      "id": "node/12796014160"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12796313302",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "80",
+        "addr:street": "North 6th Street",
+        "amenity": "cafe",
+        "check_date": "2025-07-27",
+        "level": "0",
+        "name": "Nem’s Japandi Bistro"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9612182,
+          40.7189566
+        ]
+      },
+      "id": "node/12796313302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12802287301",
+        "amenity": "cafe",
+        "cuisine": "breakfast;sandwich;diner",
+        "delivery": "yes",
+        "name": "Grand Bagel Coffee Shop",
+        "opening_hours": "Mo-Fr 05:00-18:00, Sa 05:00-16:00",
+        "phone": "+1-929-337-6299",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9383035,
+          40.7126543
+        ]
+      },
+      "id": "node/12802287301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12806870185",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "302",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "Wythe Avenue",
+        "amenity": "cafe",
+        "brand": "Joe & The Juice",
+        "brand:wikidata": "Q26221514",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "internet_access:fee": "no",
+        "name": "Joe & The Juice",
+        "opening_hours": "Mo-Su 07:00-21:00",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9644482,
+          40.7159301
+        ]
+      },
+      "id": "node/12806870185"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12824014655",
+        "addr:city": "Ridgewood",
+        "addr:housenumber": "19-07",
+        "addr:postcode": "11385",
+        "addr:state": "NY",
+        "addr:street": "Flushing Avenue",
+        "amenity": "cafe",
+        "contact:instagram": "ew_kitchen_",
+        "delivery": "yes",
+        "name": "E&W Kitchen & Café",
+        "phone": "+1-347-422-0770"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9183163,
+          40.7127121
+        ]
+      },
+      "id": "node/12824014655"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/12847512611",
+        "amenity": "cafe",
+        "name": "Drip Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9370734,
+          40.7124668
+        ]
+      },
+      "id": "node/12847512611"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13009030345",
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Bright Side",
+        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+        "outdoor_seating": "no",
+        "phone": "+1 929 276 3577",
+        "smoking": "no",
+        "website": "https://www.brightside.cafe/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9640457,
+          40.7186752
+        ]
+      },
+      "id": "node/13009030345"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13009033106",
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Pueblo Querido Coffee Roasters Cafe de Colombia",
+        "opening_hours": "Mo 06:30-16:00; Tu-Fr 06:30-17:00; Sa 07:30-17:00; Su 07:30-16:00",
+        "outdoor_seating": "no",
+        "phone": "+1 929 655 1304",
+        "smoking": "no",
+        "website": "https://www.pqcoffeeroasters.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9628164,
+          40.7199461
+        ]
+      },
+      "id": "node/13009033106"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13009348344",
+        "amenity": "cafe",
+        "coffee": "yes",
+        "cuisine": "coffee_shop",
+        "drink:espresso": "yes",
+        "email": "office@rhythmzero.nyc",
+        "indoor_seating": "yes",
+        "level": "0",
+        "name": "Rhythm Zero - Williamsburg",
+        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+        "outdoor_seating": "no",
+        "website": "https://www.rhythmzeronyc.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9533409,
+          40.7189268
+        ]
+      },
+      "id": "node/13009348344"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13027198401",
+        "addr:floor": "G",
+        "addr:housenumber": "64",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "check_date": "2026-08-29",
+        "contact:instagram": "https://www.instagram.com/loafonpaperny",
+        "cuisine": "japanese",
+        "drive_through": "no",
+        "internet_access": "no",
+        "level": "0",
+        "name": "Loaf on Paper",
+        "operator": "Niconeco Zakkaya",
+        "outdoor_seating": "no",
+        "payment:american_express": "yes",
+        "payment:cash": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "payment:mastercard": "yes",
+        "payment:visa": "yes",
+        "toilets": "yes",
+        "website": "https://loafonpaper.com/",
+        "wheelchair": "limited"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9649474,
+          40.7157288
+        ]
+      },
+      "id": "node/13027198401"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13107967347",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "151",
+        "addr:postcode": "11249",
+        "addr:state": "NY",
+        "addr:street": "North 7th Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "drink:coffee": "yes",
+        "drink:tea": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "internet_access:ssid": "KIJITORA_guest",
+        "name": "Kijitora",
+        "website": "https://www.kijitorabrooklyn.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9579097,
+          40.7180711
+        ]
+      },
+      "id": "node/13107967347"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13308349706",
+        "addr:housenumber": "147",
+        "addr:street": "Metropolitan Ave",
+        "amenity": "cafe",
+        "name": "Reforester’s Labratory",
+        "opening_hours": "Mo-Fr 08:00-14:00; Sa, Su 08:00-16:00"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9620378,
+          40.7161413
+        ]
+      },
+      "id": "node/13308349706"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13370403668",
+        "amenity": "cafe",
+        "catering": "yes",
+        "name": "Alita Cafe",
+        "opening_hours": "Mo-Fr 07:00-14:00, Sa-Su 08:00-15:00",
+        "phone": "+1-929-397-0002",
+        "website": "https://www.alitacafe.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9413565,
+          40.7120049
+        ]
+      },
+      "id": "node/13370403668"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13375145202",
+        "addr:housenumber": "327",
+        "addr:postcode": "11211",
+        "addr:street": "Grand Street",
+        "amenity": "cafe",
+        "name": "recess grove",
+        "opening_hours": "Mo-Fr 14:00-22:00; Su 12:00-20:00; Sa 12:00-22:00",
+        "website": "https://www.recessgrove.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9562828,
+          40.712784
+        ]
+      },
+      "id": "node/13375145202"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13512486590",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "772",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "amenity": "cafe",
+        "name": "Paloma Coffee & Bakery",
+        "website": "https://palomacoffeebakery.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9526078,
+          40.7272447
+        ]
+      },
+      "id": "node/13512486590"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13512486591",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "163",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Nassau Avenue",
+        "amenity": "cafe",
+        "name": "Paloma Coffee & Bakery",
+        "website": "https://palomacoffeebakery.com"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9468436,
+          40.7251868
+        ]
+      },
+      "id": "node/13512486591"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13639122763",
+        "amenity": "cafe",
+        "cuisine": "haitian",
+        "drink:espresso": "yes",
+        "name": "Le Chalet du Terroir",
+        "opening_hours": "Mo-We 10:30-19:00, Th 07:00-19:00, Fr 07:00-(sunset-03:00), Su 08:00-19:00",
+        "phone": "+1-347-430-0396"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9511998,
+          40.7295661
+        ]
+      },
+      "id": "node/13639122763"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13650297730",
+        "amenity": "cafe",
+        "name": "Falu House",
+        "opening_hours": "08:00-17:00",
+        "panoramax": "6264eda0-96fc-439d-903e-f6e004e8f771",
+        "phone": "+1 718 554 3796",
+        "website": "https://www.faluhouse.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9544257,
+          40.7244187
+        ]
+      },
+      "id": "node/13650297730"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13714964775",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "108",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Meserole Avenue",
+        "amenity": "cafe",
+        "branch": "Greenpoint",
+        "brand": "Gong Cha",
+        "brand:wikidata": "Q5581670",
+        "brand:zh": "貢茶",
+        "cuisine": "bubble_tea",
+        "int_name": "Gong Cha",
+        "name": "Gong Cha",
+        "name:zh": "貢茶",
+        "takeaway": "yes"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9524288,
+          40.7270813
+        ]
+      },
+      "id": "node/13714964775"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13723655701",
+        "amenity": "cafe",
+        "check_date": "2026-04-11",
+        "name": "Ants Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.94996,
+          40.718432
+        ]
+      },
+      "id": "node/13723655701"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13860656901",
+        "addr:housenumber": "2",
+        "addr:postcode": "11249",
+        "addr:street": "North 6th Place",
+        "amenity": "cafe",
+        "check_date": "2026-05-22",
+        "internet_access": "wlan",
+        "name": "Honeybird Coffee"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9632757,
+          40.7205953
+        ]
+      },
+      "id": "node/13860656901"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13878485101",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "65A",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Green Street",
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "name": "Coffee Check",
+        "opening_hours": "Mo-Fr 07:00-16:00; Sa-Su 08:00-16:00",
+        "outdoor_seating": "yes",
+        "payment:american_express": "yes",
+        "payment:apple_pay": "yes",
+        "payment:contactless": "yes",
+        "payment:credit_cards": "yes",
+        "payment:debit_cards": "yes",
+        "website": "https://coffeecheck.nyc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.959421,
+          40.7333653
+        ]
+      },
+      "id": "node/13878485101"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13946608301",
+        "addr:housenumber": "8",
+        "addr:postcode": "11237",
+        "addr:street": "Wilson Avenue",
+        "amenity": "cafe",
+        "check_date": "2026-06-16",
+        "check_date:opening_hours": "2026-06-16",
+        "name": "Dayglow",
+        "opening_hours": "Mo-Su 07:00-23:00",
+        "phone": "+1-312-576-8137",
+        "website": "https://dayglow.coffee/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9309684,
+          40.7035192
+        ]
+      },
+      "id": "node/13946608301"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13946679302",
+        "addr:housenumber": "320",
+        "addr:postcode": "11249",
+        "addr:street": "Wythe Avenue",
+        "amenity": "cafe",
+        "check_date": "2026-06-16",
+        "check_date:opening_hours": "2026-06-16",
+        "name": "Maru Coffee",
+        "opening_hours": "Mo-Su 07:30-17:00",
+        "phone": "+1-213-505-6476",
+        "website": "https://marucoffee.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9648491,
+          40.7153182
+        ]
+      },
+      "id": "node/13946679302"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/13997444829",
+        "addr:housenumber": "428",
+        "addr:street": "Humboldt Street",
+        "amenity": "cafe",
+        "check_date": "2026-07-08",
+        "cuisine": "coffee_shop",
+        "name": "As you like",
+        "opening_hours": "08:00-17:00",
+        "website": "https://www.asyoulike.nyc/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.942891,
+          40.7165619
+        ]
+      },
+      "id": "node/13997444829"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14016343239",
+        "amenity": "cafe",
+        "contact:instagram": "mymokafe",
+        "cuisine": "coffee_shop",
+        "internet_access": "yes",
+        "name": "MOKAFÉ",
+        "opening_hours": "Mo-Th 07:00-21:00; Fr 08:00-21:00",
+        "outdoor_seating": "no",
+        "website": "https://mymokafe.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9531853,
+          40.7277379
+        ]
+      },
+      "id": "node/14016343239"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14138363713",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "623",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Manhattan Avenue",
+        "air_conditioning": "yes",
+        "amenity": "cafe",
+        "contact:instagram": "@cadetcoffee",
+        "cuisine": "coffee_shop",
+        "delivery": "no",
+        "drive_through": "no",
+        "email": "info@cadetcoffee.com",
+        "indoor_seating": "yes",
+        "internet_access": "wlan",
+        "internet_access:fee": "no",
+        "level": "0",
+        "name": "CADET Coffee",
+        "opening_hours": "Mo-Fr 08:00-15:00; Sa-Su 08:30-16:00",
+        "outdoor_seating": "no",
+        "phone": "+19179793073",
+        "website": "https://www.cadetcoffee.com/"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9509274,
+          40.7236074
+        ]
+      },
+      "id": "node/14138363713"
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "@id": "node/14140803266",
+        "addr:city": "Brooklyn",
+        "addr:housenumber": "162",
+        "addr:postcode": "11222",
+        "addr:state": "NY",
+        "addr:street": "Noble Street",
+        "amenity": "cafe",
+        "cuisine": "coffee_shop",
+        "name": "Flower Cat",
+        "opening_hours": "Mo-Th 08:00-17:00; Fr 08:00-22:30; Sa 09:00-17:00; Su 09:00-16:00",
+        "phone": "+1-347-335-0906",
+        "website": "https://flowercat.nyc"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -73.9539046,
+          40.7287041
+        ]
+      },
+      "id": "node/14140803266"
+    }
+  ]
+}
