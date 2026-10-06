@@ -1,0 +1,22 @@
+This project is meant to be practice with creating a simple AI agent in python, using Google Gemini API. 
+It's meant to be free/as low-cost as possible, and meant to be practice with web scraping and creating a
+simple, easy-to-read user interface.
+
+The stack for this project will be -
+[fill in ]
+
+The framework for building this project out will be - 
+Learn about creating a local AI agent, linking it up with gemini, and getting that agent prompted and started
+as a recipe scraper/ combiner that takes simple prompts: time constraint, dietary constraint, prior 
+tastes, and complexity - and combines them to deliver a recipe or meal recommendation. 
+
+The next step will be to provide that information in a user-friendly way, and enable sending that information
+to a grocery list or friend. 
+
+The next piece will be adding potentially another agent or another web scraper- to find stores that stock 
+those items nearby and find good prices (potentially) or suggest good pairings of snacks/alcohol/hors d'ouvres
+
+Then the AI agent should add some copmlexity - develop a memory and taste profile of a user's comfort zone,
+and be able to recommend meals both in and out of the comfort zone. Potentially an option for ethnic cuisines as 
+well, or to guide users who don't feel like cooking to a highly rated local restaurant. 
+Potentially another scraper to find deals on DoorDash. 
