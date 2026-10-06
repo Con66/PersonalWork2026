@@ -1,14 +1,19 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
+import { getAuth, signInAnonymously } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCOwdEok4vm6cOFhi14nUp9XP87NJ7LDn4",
-  authDomain: "coffeerater-7acde.firebaseapp.com",
-  projectId: "coffeerater-7acde",
-  storageBucket: "coffeerater-7acde.firebasestorage.app",
-  messagingSenderId: "375806681303",
-  appId: "1:375806681303:web:199ad86d5f79cadc515092",
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
 
 const app = initializeApp(firebaseConfig);
+
 export const db = getFirestore(app);
+export const auth = getAuth(app);
+
+signInAnonymously(auth).catch((err) => console.error('Anonymous sign-in failed:', err));

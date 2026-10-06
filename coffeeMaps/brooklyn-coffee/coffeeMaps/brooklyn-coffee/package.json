@@ -9,12 +9,10 @@
     "preview": "vite preview"
   },
   "devDependencies": {
-    "vite": "^8.3.0"
+    "vite": "^8.2.2"
   },
   "dependencies": {
     "firebase": "^12.18.0",
-    "leaflet": "^1.9.4",
-    "lucide-static": "^1.46.0",
     "opening_hours": "^3.14.0"
   }
 }
