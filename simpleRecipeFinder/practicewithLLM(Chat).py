@@ -1,14 +1,13 @@
+from dotenv import load_dotenv
 from openai import OpenAI
 
-client = OpenAI(api_key="")
+load_dotenv()
 
-response = client.chat.completions.create(
-    model="gpt-5-mini",
-    messages=[
-        # {"role": "system", "content": "You are a goofy AI just trying to tell some jokes"},
-        {"role": "user", "content": "Greet me warmly using a not-joke"},
-        # {"role": "assistant", "content": "I am unhappy to see you .... NOT!"},
-    ],
+client = OpenAI()
+
+response = client.responses.create(
+    model="gpt-5.4-mini",
+    input="Greet me warmly using a not-joke"
 )
 
-print(response.choices[0].message.content)
+print(response.output_text)
