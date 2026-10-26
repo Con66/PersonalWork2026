@@ -1,0 +1,6 @@
+# Real Firebase credentials - never commit this. Copy firebase-config.example.js
+# to firebase-config.js and fill in your own project's values.
+firebase-config.js
+
+# Firebase CLI local cache
+.firebase/
