@@ -1,0 +1,20 @@
+{
+  "name": "brooklyn-coffee",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "firebase": "^12.18.0",
+    "leaflet": "^1.9.4",
+    "lucide-static": "^1.46.0",
+    "opening_hours": "^3.14.0"
+  }
+}
